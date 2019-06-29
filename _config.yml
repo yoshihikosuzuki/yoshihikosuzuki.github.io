@@ -1,0 +1,20 @@
+theme: jekyll-theme-leap-day
+title: Untitled
+description: Those there alone can see the scene.
+google_analytics: UA-142767811-1
+algolia:
+  application_id: WX370V53Q1
+  index_name: yetnone_site
+  search_only_api_key: 1665612ac25b52d4734b5116002f1415
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+collections:
+  knowledge:
+    output: true
+    permalink: /:collection/:name.html
+paginate: 5
+paginate_path: "/blog/page:num/"
+exclude:
+  [run_algolia.sh, run_jekyll.sh]
