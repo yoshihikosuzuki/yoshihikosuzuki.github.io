@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: knowledge
 title: C++ 競技プログラミングテンプレート
 ---
 
@@ -28,7 +28,7 @@ using VB = vector<bool>; using VS = vector<string>; using VP = vector<PII>;
 
 |        操作        |                 記法                  |                         備考                         |
 | :----------------: | :-----------------------------------: | :--------------------------------------------------: |
-|   最大値・最小値   |     [INT\|LLONG\|DBL]_[MAX\|MIN]      |        min/max 等で怪しいのでなるべく使わない        |
+|   最大値・最小値   |     [INT\|LLONG\|DBL]_[MAX\|MIN]      |                                                      |
 | double を N 桁表示 | cout << setprecision(N) << X << endl; | 小数点以下 N 桁なら cout << fixed << setprecision(N) |
 
 * X以上の最小のNの倍数

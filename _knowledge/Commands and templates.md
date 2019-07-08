@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: knowledge
 title: よく使うコマンドやテンプレート達
 ---
 

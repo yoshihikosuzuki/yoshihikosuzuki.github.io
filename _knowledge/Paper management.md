@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: knowledge
 title: 論文管理ソフト
 ---
 
