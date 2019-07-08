@@ -3,7 +3,7 @@ layout: default
 title: C++ 競技プログラミングテンプレート
 ---
 
-### Template
+### 型・マクロ
 
 ```c++
 #include <bits/stdc++.h>
@@ -736,13 +736,4 @@ while (q_index < SZ(D)) {
 }
 ```
 
-
-
-
-
-## Topcoder Tips
-
-* Greedのテストはコンパイルが通らなかった場合などに全部`PASSED!`出したりと適当なので、必ずArenaで`COMPILE`->`BATCH TEST`して全てのテストケースで`Correct example: true` (`Success: True`ではない)となっていることを確認する
-* Practiceの場合はメニューの`Practice Options`->`Run System Test`で非公開のテストケースも試せる
-* Greedのテスト実行時、各ケースでの標準出力の1行目は`Testcase #0 …`の直後に(改行無しで)表示されることに注意
 
