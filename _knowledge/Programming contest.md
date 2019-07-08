@@ -1,6 +1,7 @@
 ---
 layout: knowledge
 title: C++ 競技プログラミングテンプレート
+order: 200
 ---
 
 #### 型・マクロ
