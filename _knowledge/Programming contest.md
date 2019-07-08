@@ -631,7 +631,7 @@ void bfs(LL s, VVI& G) {   // 返り値などは適宜変える
 }
 
 FOR(v, 1, N + 1) {
-    dfs(v, G);
+    bfs(v, G);
 }
 ```
 

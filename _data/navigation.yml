@@ -3,7 +3,7 @@
 - name: About
   link: /about.html
 - name: Blog
-  link: /blog/index.html
+  link: /blog/
 - name: Knowledge
   link: /knowledge.html
 - name: TODO
