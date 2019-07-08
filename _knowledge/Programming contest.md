@@ -3,7 +3,7 @@ layout: default
 title: C++ 競技プログラミングテンプレート
 ---
 
-### 型・マクロ
+#### 型・マクロ
 
 ```c++
 #include <bits/stdc++.h>
