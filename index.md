@@ -25,4 +25,4 @@ title: Home
 {{ post.excerpt }}
 
 {% endfor %}
--> [すべての投稿を見る]({% link knowledge.html %})
+-> [すべての記事を見る]({% link knowledge.html %})
