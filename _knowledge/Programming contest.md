@@ -4,7 +4,7 @@ title: C++ 競技プログラミングテンプレート
 order: 200
 ---
 
-#### 型・マクロ
+### 型・マクロ
 
 ```c++
 #include <bits/stdc++.h>
@@ -25,64 +25,56 @@ using VB = vector<bool>; using VS = vector<string>; using VP = vector<PII>;
 #define $(x)         {cout << #x << " = " << (x) << endl;}
 ```
 
-#### 数値
+### 数値
 
-|        操作        |                 記法                  |                         備考                         |
-| :----------------: | :-----------------------------------: | :--------------------------------------------------: |
-|   最大値・最小値   |     [INT\|LLONG\|DBL]_[MAX\|MIN]      |                                                      |
-| double を N 桁表示 | cout << setprecision(N) << X << endl; | 小数点以下 N 桁なら cout << fixed << setprecision(N) |
+|         操作          |                      記法                      |
+| :-------------------: | :--------------------------------------------: |
+|    最大値・最小値     |          [INT\|LLONG\|DBL]_[MAX\|MIN]          |
+|  double を N 桁表示   |     cout << setprecision(N) << X << endl;      |
+| 小数点以下 N 桁を表示 | cout << fixed << setprecision(N) << X << endl; |
 
 * X以上の最小のNの倍数
+  * 何倍か知りたいだけの場合は最初の`n *`を消す
 
 ```c++
-inline LL minMult(LL x, LL n) { return n * (x / n + (x % n == 0 ? 0 : 1)); }   // 何倍か知りたいだけの場合は最初の n * を消す
+inline LL minMult(LL x, LL n) { return n * (x / n + (x % n == 0 ? 0 : 1)); }
 ```
 
-#### 文字列`string`
+### 文字列`string`
 
 |      操作      |                      記法                      |                             備考                             |
 | :------------: | :--------------------------------------------: | :----------------------------------------------------------: |
 |     初期化     |        string X(S);<br>string X(N, C);         | 例) `string X("abc");`<br>例) `stirng X(5, 'a');`   // "aaaaa" |
-|   参照・代入   |                   X[i] = C;                    |        先頭・末尾参照は X.front() ／ X.back() でも可         |
-| 置換(範囲代入) |              X.replace(i, N, S);               |    例) `string("abcde").replace(2, 2, "ff");` は "abffe"     |
-|   iteration    |   REP(i, SZ(X)) { X[i] }<br>EACH(c, X) { c }   |                                                              |
 |   部分文字列   |                 X.substr(i, N)                 | X[i] から N 文字を切り出す<br>例) `string("abcde").substr(2, 2)` は "cd" |
 |    存在判定    | if (X.find(S) != string::npos) { /* EXIST */ } |                                                              |
 | 先頭・末尾検索 |        (LL)X.find(S) ／ (LL)X.rfind(S)         |               返り値は先頭[末尾]のマッチの位置               |
 |  数値から変換  |                  to_string(N)                  |                    double の桁埋めは不可                     |
 |   数値に変換   |         stoll(X) ／ stoi(X) ／ stod(X)         |       X をバイナリ扱いする場合は stoll(X, nullptr, 2)        |
 
-* 全マッチ列挙
+* 全マッチ位置列挙
 
 ```c++
-inline void findAll(string& S, VI& P, string pattern) {
+VI findAll(string S, string pattern) {
+    VI P;
     LL pos = (LL)S.find(pattern);
     while (pos != string::npos) {
         P.PB(pos);
         pos = (LL)S.find(pattern, pos + 1);
     }
-    return;
+    return P;
 }
 
-string S("abcdeacac");
-string pattern("a");   // findAll の仮引数に直に書いてもいい
-VI P;   // S における pattern の出現位置のリスト
-findAll(S, P, pattern);   // P = {0, 5, 7}
+auto P = findAll("abcdeacac", "a");   // P = {0, 5, 7}
 ```
 
-#### 動的配列`vector`
+### 動的配列`vector`
 
-|      操作      |                           記法                            |             計算量              |                備考                |
-| :------------: | :-------------------------------------------------------: | :-----------------------------: | :--------------------------------: |
-|      宣言      |                    vector\<T> X(N, E);                    |                                 |  N はサイズ、E は初期値 (省略可)   |
-|   二次元配列   |                LL は VVI X(N1, VI(N2, E));                |                                 |                                    |
-|  動的領域確保  |                       X.resize(N);                        |                                 |                                    |
-|   参照・代入   |                         X[i] = x;                         |              O(1)               | 先頭と末尾は X.front() と X.back() |
-|   末尾に追加   |                         X.PB(x);                          |              O(1)               |                                    |
-|   iteration    |        REP(i, SZ(X)) { X[i] }<br>EACH(x, X) { x }         |                                 |                                    |
-|  最大・最小値  |      \*max_element(ALL(X)) ／ \*min_element(ALL(X))       |                                 |                                    |
-| 存在判定(線形) |      if (find(ALL(X), E) != X.end()) { /* EXIST */ }      |            O(\|X\|)             |                                    |
-| 存在判定(二分) | SORT(X);<br>if (binary_search(ALL(X), E)) { /* EXIST */ } | O(\|X\|log\|X\|)<br>O(log\|X\|) |                                    |
+|      操作      |                           記法                            |
+| :------------: | :-------------------------------------------------------: |
+|      宣言      |                    vector\<T> X(N, E);                    |
+|   二次元配列   |                  VV(T) X(N1, VI(N2, E));                  |
+|  最大・最小値  |      \*max_element(ALL(X)) ／ \*min_element(ALL(X))       |
+| 存在判定(二分) | SORT(X);<br>if (binary_search(ALL(X), E)) { /* EXIST */ } |
 
 * `vector<pair>`のソート
 
@@ -105,11 +97,11 @@ struct Tuple {
     LL a, b;   // ソートしたい中身
 };
 
-vector<Tuple> X(N);   // ソート対象が1種類なら pair でもよい
+vector<Tuple> X(N);   // ソート対象が1種類ならデータとインデックスの pair でもよい
 REP(i, N) {
     X[i] = Tuple{i + 1, A[i], B[i]};   // 1-indexed; pair なら MP(A[i], i + 1)
 }
-sort(ALL(X), [] (auto& x, auto& y) {return x.b > y.b;});   // least significant なものからソートしていく、pair なら F[R]SORT(X);
+stable_sort(ALL(X), [] (auto& x, auto& y) {return x.b > y.b;});   // least significant なものからソートしていく、pair なら F[R]SORT(X);
 stable_sort(ALL(X), [] (auto& x, auto& y) {return x.a < y.a;});
 
 REP(i, N) {
@@ -139,17 +131,17 @@ if (index == -1) {
 }
 ```
 
-#### 双方向動的配列`deque`
+### 双方向動的配列`deque`
 
-|      操作      |                記法                 |              備考               |
-| :------------: | :---------------------------------: | :-----------------------------: |
-|      宣言      |         deque\<T> X(N, E);          | N はサイズ、E は初期値 (省略可) |
-|   参照・代入   |              X[i] = x;              |                                 |
-| 先頭・末尾参照 |        X.front() ／ X.back()        |                                 |
-| 先頭・末尾追加 | X.push_front(x); ／ X.push_back(x); |                                 |
-| 先頭・末尾削除 |   X.pop_front(); ／ X.pop_back();   |                                 |
+|      操作      |                記法                 |
+| :------------: | :---------------------------------: |
+|      宣言      |         deque\<T> X(N, E);          |
+|   参照・代入   |              X[i] = x;              |
+| 先頭・末尾参照 |        X.front() ／ X.back()        |
+| 先頭・末尾追加 | X.push_front(x); ／ X.push_back(x); |
+| 先頭・末尾削除 |   X.pop_front(); ／ X.pop_back();   |
 
-#### 集合・連想配列
+### 集合・連想配列
 
 |                            |                 集合                 |               連想配列               |
 | :------------------------: | :----------------------------------: | :----------------------------------: |
@@ -164,7 +156,7 @@ if (index == -1) {
 
 * `set<PII>`はOKだが`unordered_set<PII>`はNG
 
-#### スタック・キュー・ヒープ
+### スタック・キュー・ヒープ
 
 |           |                     スタック                      |                       キュー                        |                            ヒープ                            |
 | :-------: | :-----------------------------------------------: | :-------------------------------------------------: | :----------------------------------------------------------: |
@@ -174,9 +166,7 @@ if (index == -1) {
 | 先頭参照  |                      X.top()                      |                      X.front()                      |                           X.top()                            |
 | iteration | while (!X.empty()) { auto x = X.top(); X.pop(); } | while (!X.empty()) { auto x = X.front(); X.pop(); } |      while (!X.empty()) { auto x = X.top(); X.pop(); }       |
 
-### Code examples
-
-#### 約数・素数
+### 素数・約数
 
 - 最大公約数 GCD・最小公倍数 LCM
 
@@ -276,9 +266,7 @@ map<LL, LL> pfs = factorize(N);
 for (auto pf : pfs) { /* pf.first が素因数、pf.second が階乗数 */ }
 ```
 
-#### 組み合わせ、モジュロ演算
-
-- モジュロ演算 (& 二分累乗法)
+### モジュロ演算・組み合わせ
 
 ```c++
 const LL MOD = 1e9 + 7;
@@ -319,7 +307,7 @@ Combination c(N);   // N は n の最大値
 LL ncr = c.nCr(n, r);
 ```
 
-#### 順列、組み合わせ列挙
+### 順列・組み合わせ列挙
 
 * 順列列挙
 
@@ -385,42 +373,31 @@ dfs(0, 0, "");
 ```
 
 * 組み合わせで $r$ 回全部選ばなくても良い場合は、選ばないという選択肢を増やした $N+1$ 個の要素からの $r$ 個の組み合わせを計算する
+* TODO: 組み合わせ公式
 
-#### アルゴリズム、データ構造
+### 累積和・しゃくとり法
 
-- メモ化再帰
-
-```c++
-LL memo_rec(LL i, T& C, VI& dp) {
-    if (dp[i] != 初期値) return dp[i];
-    LL val = ;
-    EACH(x, C[i]) {
-        val = max(val, memo_rec(x, C, dp)) などで再帰をばらまく;
-    }
-    return dp[i] = val;
-}
-
-REP(i, N) memo_rec(i, C, dp);
-```
-
-* ナップサック
-  * 「$N$個のうち$A_i$個をそれぞれ$B_i$個にできる」場合は`weight`=$A_i$、`value`=$B_i-A_i$として`N += knapsack(I, N, weight, value)`で最大個数にできる
+- 連続部分列の要素の総和 $S[l,r]=S[1,r]-S[1,l-1]$ 
 
 ```c++
-LL knapsack(LL N, LL W, VI& weight, VI& value) {   // weight と value は 1-indexed
-    VVI dp(N + 1, VI(W + 1));   // dp[i][j] = i番目の要素までを使い、合計容量j以下での価値の和の最大値
-    FOR(i, 1, N + 1) {
-        REP(j, W + 1) {
-            dp[i][j] = max(dp[i][j], dp[i - 1][j]);   // 要素iを入れない
-            if (j - weight[i] >= 0) dp[i][j] = max(dp[i][j], dp[i - 1][j - weight[i]] + value[i]);   // 要素iを入れる、0-1ナップサック
-            //if (j - weight[i] >= 0) dp[i][j] = max(dp[i][j], dp[i][j - weight[i]] + value[i]);   // 要素iを入れる、個数制限無しナップサック
-        }
-    }
-    return dp[N][W];
-}
+VI X;
+// Xが0-indexedなら
+VI S(SZ(X) + 1);
+REP(i, SZ(X)) S[i + 1] = S[i] + X[i];
+auto sum_of_l_to_r = S[r + 1] - S[l];
+// Xが1-indexedなら
+VI S(SZ(X));
+FOR(i, 1, SZ(X)) S[i] = S[i - 1] + X[i];
+auto sum_of_l_to_r = S[r] - S[l - 1];
 ```
 
-* しゃくとり法(条件を満たす連続部分列の列挙)
+- 二次元累積和
+
+```c++
+
+```
+
+- しゃくとり法(条件を満たす連続部分列の列挙)   TODO: 一般化
 
 ```c++
 VI X(N);
@@ -442,27 +419,9 @@ REP(left, N) {
 }
 ```
 
-* 連続部分列の要素の総和 $S[l,r]=S[1,r]-S[1,l-1]$ 
+### その他データ構造・アルゴリズム
 
-```c++
-VI X;
-// Xが0-indexedなら
-VI S(SZ(X) + 1);
-REP(i, SZ(X)) S[i + 1] = S[i] + X[i];
-auto sum_of_l_to_r = S[r + 1] - S[l];
-// Xが1-indexedなら
-VI S(SZ(X));
-FOR(i, 1, SZ(X)) S[i] = S[i - 1] + X[i];
-auto sum_of_l_to_r = S[r] - S[l - 1];
-```
-
-* 二次元累積和
-
-```c++
-
-```
-
-* Union-Find (同値関係の追加と検索; 無向グラフの連結成分)
+- Union-Find (同値関係の追加と検索; 無向グラフの連結成分)
 
 ```c++
 class UnionFind {
@@ -495,7 +454,77 @@ REP(i, N) {   // 1-indexの場合は FOR(i, 1, N + 1) にする
 }
 ```
 
-#### 探索(平面、グラフ)
+- 区間の集合と(多数の)座標が与えられた時の区間所属判定
+
+```c++
+vector<pair<LL, pair<bool, LL>>> events;   // 座標、区間開始(true)・終了(false)フラグ、値(区間のラベルなど)
+REP(i, N) {
+  LL s, t, x;
+  cin >> s >> t >> x;   // 区間 [s, t) と任意の値 x、ここでは t が exclusive であることに注意
+  events.PB(MP(s, MP(true, x)));
+  events.PB(MP(t, MP(false, x)));   // t が inclusive の場合は t + 1 とする
+}
+FSORT(events);   // 区間の座標だけで
+
+VI D;   // 所属を判定したい座標たち
+LL q_index = 0;
+set<LL> curr_val;   // 同じvalをもつ複数の区間は重ならないとする(重なる場合はmultiset？)
+EACH(x, events) {
+  auto coord = x.first;
+  auto start = x.second.first;
+  auto val = x.second.second;
+  while (q_index < SZ(D) && D[q_index] < coord) {
+    q_index++;
+    if (SZ(curr_val) == 0) {
+      /* 座標 D[q_index] はどの区間にも属していない */
+    } else {
+      /* *curr_val.begin() */
+    }
+  }
+  if (start) curr_val.insert(val);
+  else curr_val.erase(val);
+}
+while (q_index < SZ(D)) {
+  q_index++;
+  /* どの区間にも属していない */
+}
+```
+
+### 動的計画法
+
+- メモ化再帰
+
+```c++
+LL memo_rec(LL i, T& C, VI& dp) {
+    if (dp[i] != 初期値) return dp[i];
+    LL val = ;
+    EACH(x, C[i]) {
+        val = max(val, memo_rec(x, C, dp)) などで再帰をばらまく;
+    }
+    return dp[i] = val;
+}
+
+REP(i, N) memo_rec(i, C, dp);
+```
+
+* ナップサック問題($N$個のものから合計コスト$W$以下で価値和最大となるように選ぶ)
+  * 「$N$個のうち$A_i$個をそれぞれ$B_i$個にできる」場合は`weight`=$A_i$、`value`=$B_i-A_i$として`N += knapsack(I, N, weight, value)`で最大個数にできる($I$は$i$の数)
+
+```c++
+LL knapsack(LL N, LL W, VI& weight, VI& value) {   // weight と value は 1-indexed
+    VVI dp(N + 1, VI(W + 1));   // dp[i][j] = i番目の要素までを使い、合計容量j以下での価値の和の最大値
+    FOR(i, 1, N + 1) {
+        REP(j, W + 1) {
+            dp[i][j] = max(dp[i][j], dp[i - 1][j]);   // 要素iを入れない
+            if (j - weight[i] >= 0) dp[i][j] = max(dp[i][j], dp[i - 1][j - weight[i]] + value[i]);   // 要素iを入れる、0-1ナップサック
+            //if (j - weight[i] >= 0) dp[i][j] = max(dp[i][j], dp[i][j - weight[i]] + value[i]);   // 要素iを入れる、個数制限無しナップサック
+        }
+    }
+    return dp[N][W];
+}
+```
+
+### 探索(平面、グラフ)
 
 * 二次元平面の探索(BFS)
 
@@ -700,41 +729,4 @@ vector<Edge> edges;
 edges.PB(Edge{x, y, w});
 LL min_weight_sum = kruskal(N + 1, edges);
 ```
-
-* 区間の集合と(多数の)座標が与えられた時の区間所属判定
-
-```c++
-vector<pair<LL, pair<bool, LL>>> events;   // 座標、区間開始(true)・終了(false)フラグ、値(区間のラベルなど)
-REP(i, N) {
-  LL s, t, x;
-  cin >> s >> t >> x;   // 区間 [s, t) と任意の値 x、ここでは t が exclusive であることに注意
-  events.PB(MP(s, MP(true, x)));
-  events.PB(MP(t, MP(false, x)));   // t が inclusive の場合は t + 1 とする
-}
-FSORT(events);   // 区間の座標だけで
-
-VI D;   // 所属を判定したい座標たち
-LL q_index = 0;
-set<LL> curr_val;   // 同じvalをもつ複数の区間は重ならないとする(重なる場合はmultiset？)
-EACH(x, events) {
-  auto coord = x.first;
-  auto start = x.second.first;
-  auto val = x.second.second;
-  while (q_index < SZ(D) && D[q_index] < coord) {
-    q_index++;
-    if (SZ(curr_val) == 0) {
-      /* 座標 D[q_index] はどの区間にも属していない */
-    } else {
-      /* *curr_val.begin() */
-    }
-  }
-  if (start) curr_val.insert(val);
-  else curr_val.erase(val);
-}
-while (q_index < SZ(D)) {
-  q_index++;
-  /* どの区間にも属していない */
-}
-```
-
 
