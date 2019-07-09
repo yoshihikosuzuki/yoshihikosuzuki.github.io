@@ -5,7 +5,7 @@ title: TODO
 
 ### GitHub Pages
 
-
+* Mathjax
 
 
 
