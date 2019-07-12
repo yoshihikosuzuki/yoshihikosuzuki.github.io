@@ -13,6 +13,7 @@ title: TODO
 
 * よかったもの紹介ページ
 * programming language evolution along with theory
+* DP = Dijkstra = Tropical algebra
 
 
 
