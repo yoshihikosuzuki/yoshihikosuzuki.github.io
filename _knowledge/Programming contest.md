@@ -526,11 +526,38 @@ LL knapsack(LL N, LL W, VI& weight, VI& value) {   // weight と value は 1-ind
 
 ### 探索(平面、グラフ)
 
-* 二次元平面の探索(BFS)
+* 二次元平面の探索(DFS; 上下移動)
 
 ```c++
-struct Point { LL x, y, d; }   // d はマンハッタン距離
-vector<Point> moves{Point(-1, 0, 0), Point(1, 0, 0), Point(0, -1, 0), Point(0, 1, 0)};   // 第3引数はダミー
+VP moves{MP(-1, 0), MP(1, 0), MP(0, -1), MP(0, 1)};
+
+void dfs(LL i, LL j, LL& H, LL& W, VV(T)& X, VV(bool)& visited) {
+    if (visited[i][j] || /* 探索路に関する追加の制約 */) return;
+    visited[i][j] = true;
+    for (auto move : moves) {
+        auto next_i = i + move.first, next_j = j + move.second;
+        if (0 <= next_i && next_i < H && 0 <= next_j && next_j < W) {
+            dfs(next_i, next_j, H, W, X, visited);
+        }
+    }
+}
+
+VV(T) X;   // 平面のデータ
+VV(bool) visited(H, VB(W));
+REP(i, H) {
+    REP(j, W) {
+        if (/* 探索開始点の条件 */ && !visited[i][j]) {
+            dfs(i, j, H, W, X, visited);
+        }
+    }
+}
+```
+
+* 二次元平面の探索(BFS; 上下移動)
+
+```c++
+struct Point { LL x, y, d; };   // d はマンハッタン距離
+vector<Point> moves{Point{-1, 0, 0}, Point{1, 0, 0}, Point{0, -1, 0}, Point{0, 1, 0}};   // 第3引数はダミー
 
 VVI X(H, VI(W));   // or VS X(H); 平面(H, W)の状態; visited と役割が被るなら無くても良い
 vector<VB> visited(H, VB(W));
@@ -549,6 +576,7 @@ while (!q.empty()) {
 }
 ```
 
+- 二次元平面の探索(BFS; 任意の移動)
 - グラフ(全て1-indexed)
 
 ```c++
@@ -668,20 +696,22 @@ FOR(v, 1, N + 1) {
 - ダイクストラ法(1頂点から各頂点への最小コスト; BFS)
 
 ```c++
-void dijkstra(LL s, vector<vector<Edge>>& G, VI& cost) {
-    priority_queue<PII, VP, greater<PII>> q;   // PII = (cost, w)
-    q.push(MP(0, s));
+VI dijkstra(LL s, vector<vector<Edge>>& G) {
+    VI cost(SZ(G), LLONG_MAX);
     cost[s] = 0;
+    priority_queue<PII, VP, greater<PII>> q;   // PII = (cost_from_s, to_node)
+    q.push(MP(cost[s], s));
     while (!q.empty()) {
         LL v = q.top().second; q.pop();
         EACH(x, G[v]) {
-            LL w = x.first, c = x.second;
-            if (cost[w] > cost[v] + c) {
+            LL w = x.first, c = x.second;   // c = cost of v -> w
+            if (cost[w] > cost[v] + c) {   // s -> v -> w is better than current s -> w
                 cost[w] = cost[v] + c;
                 q.push(MP(cost[w], w));
             }
         }
     }
+    return cost;
 }
 
 /* 隣接リストでエッジに属性を乗せたい場合 [ダイクストラなど] */
@@ -701,11 +731,15 @@ LL min_cost_v_to_w = cost[w];
 
 ```
 
-* ワーシャルフロイド法(各頂点から各頂点への最小コスト、更新内容をメモすれば最短経路も求まる)
+* ワーシャルフロイド法(各頂点から各頂点への最小コストと最短経路)
 
 ```c++
 VVI c(N, VI(N));   // c[i][j] = エッジ i->j のコスト
-REP(k, N) REP(i, N) REP(j, N) if (c[i][j] > c[i][k] + c[k][j]) c[i][j] = c[i][k] + c[k][j];
+VVI next(N, VI(N, -1));   // 経路用; next[i][j] = ノードiからjへ向かう最短経路のiの次のノード
+REP(k, N) REP(i, N) REP(j, N) if (c[i][j] > c[i][k] + c[k][j]) {
+    c[i][j] = c[i][k] + c[k][j];
+    next[i][j] = next[i][k];
+}
 ```
 
 - クラスカル法(最小全域木; 無効グラフ)

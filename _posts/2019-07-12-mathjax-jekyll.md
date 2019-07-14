@@ -30,4 +30,5 @@ Mathjax の導入自体は特に難しくない。[公式サイト](https://www.
 
 * `|`は表の区切りとして解釈されてしまうので、代わりに`\vert`や`\mid`を使う(cf. [https://github.com/gettalong/kramdown/issues/46](https://github.com/gettalong/kramdown/issues/46))
 * `\{`,`\}`は Liquid として扱われ表示されない。`$$`で囲むと表示される
+* `\|`(二重縦棒; ノルム等)は一重縦棒で表示されてしまうので、代わりに`\parallel`を使う(意味が違うので少しモヤモヤするが。。)
 
