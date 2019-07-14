@@ -133,7 +133,7 @@ int main() {
 
 
 
-上下移動だけであれば $h$ を Manhattan 距離にすれば良いのだが、一般の移動に対しては移動コストの上限をちゃんと考えないといけない。
+上下移動だけであれば $h$ を Manhattan 距離(= L1ノルム)にすれば良いのだが、一般の移動に対しては移動コストの上限をちゃんと考えないといけない。
 
 
 
@@ -147,90 +147,54 @@ int main() {
 . . . . .
 ```
 
-```c++
-#include <bits/stdc++.h>
-using namespace std;
-using LL = long long; using PII = pair<LL, LL>; using VI = vector<LL>; using VVI = vector<VI>;
-using VB = vector<bool>; using VS = vector<string>; using VP = vector<PII>;
-#define VV(T)        vector<vector<T>>
-#define PB           push_back
-#define MP           make_pair
-#define SZ(a)        LL((a).size())
-#define EACH(x, c)   for (auto x : (c))
-#define ALL(c)       (c).begin(), (c).end()
-#define REVERSE(c)   reverse(ALL(c))
-#define SORT(c)      stable_sort(ALL(c))
-#define RSORT(c)     stable_sort((c).rbegin(), (c).rend())
-#define FOR(i, a, b) for (LL i = (a); i < (b); ++i)
-#define REP(i, n)    FOR(i, 0, n)
-#define DEBUG true
-#define $(x) {if (DEBUG) {cout << #x << " = " << (x) << endl;}}
 
+
+マクロ等は上と同じなので省略してある。
+
+```c++
 struct Point {
     LL i, j, d;
 };
 
-using PP = pair<double, Point>;
+using PP = pair<double, Point>;   // first is priority = [cost so far] + [est_dist to the destination]
 
 bool operator<(const PP& x, const PP& y) {
     return x.first < y.first;
 }
 
-inline double est_dist(Point x, Point y) {
+inline double est_dist(Point x, Point y) {   // estimated distance from point x to y
     return ceil((double)max(abs(x.i - y.i), abs(x.j - y.j)) / 2);
 }
 
 int main() {
-    // define the moves
-    vector<Point> moves;
-    FOR(i, -2, 3) {
-        FOR(j, -2, 3) {
-            if ((i == -2 || i == 2 || j == -2 || j == 2) && (abs(i) != abs(j))) {
-                moves.PB(Point{i, j, 0});
-            }
-        }
-    }
-
-    // load cin
-    LL H, W, N;
-    cin >> H >> W;
-    cin >> N;
-    VV(char) map(H, vector<char>(W));
-    vector<Point> dests(N);   // point 1, 2, ..., N
-    Point curr;   // point S
-    REP(i, H) {
-        REP(j, W) {
-            cin >> map[i][j];
-            if (map[i][j] == 'S') {
-                curr = Point{i, j, 0};
-            } else if (map[i][j] != '.' && map[i][j] != '#') {
-                dests[map[i][j] - '0' - 1] = Point{i, j, 0};
-            }
-        }
-    }
+    /* (中略; 上と同じ) */
 
     LL total_d = 0;
     EACH(dest, dests) {
         // search a way from <curr> to <dest> by A* algorithm
         priority_queue<PP, vector<PP>, greater<PP>> q;
         q.push(MP(0., curr));
-        VV(bool) visited(H, VB(W));
+        VVI cost(H, VI(W, LLONG_MAX));   // using unordered_map is better if search space is sparse
+        cost[curr.i][curr.j] = 0;
         LL max_d = 0;
         bool reached = false;
         while (!q.empty()) {
             auto p = q.top().second; q.pop();
-            if (0 <= p.i && p.i < H && 0 <= p.j && p.j < W && map[p.i][p.j] != '#' && !visited[p.i][p.j]) {
-                visited[p.i][p.j] = true;
-                max_d = p.d;
-                if (p.i == dest.i && p.j == dest.j) {   // reached
-                    total_d += max_d;
-                    reached = true;
-                    break;
-                }
-                EACH(move, moves) {
-                    auto next_i = p.i + move.i, next_j = p.j + move.j;
-                    Point next{next_i, next_j, p.d + 1};
-                    q.push(MP(est_dist(next, dest), next));
+            max_d = p.d;
+            if (p.i == dest.i && p.j == dest.j) {   // reached
+                total_d += max_d;
+                reached = true;
+                break;
+            }
+            EACH(move, moves) {
+                auto next_i = p.i + move.i, next_j = p.j + move.j;
+                if (0 <= next_i && next_i < H && 0 <= next_j && next_j < W && map[next_i][next_j] != '#') {
+                    auto new_cost = cost[p.i][p.j] + 1;
+                    if (cost[next_i][next_j] > new_cost) {
+                        cost[next_i][next_j] = new_cost;
+                        Point next{next_i, next_j, p.d + 1};
+                        q.push(MP(new_cost + est_dist(next, dest), next));
+                    }
                 }
             }
         }
