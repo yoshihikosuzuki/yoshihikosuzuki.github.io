@@ -40,6 +40,18 @@ using VB = vector<bool>; using VS = vector<string>; using VP = vector<PII>;
 inline LL minMult(LL x, LL n) { return n * (x / n + (x % n == 0 ? 0 : 1)); }
 ```
 
+### ビット演算
+
+|    操作     |       記法       |
+| :---------: | :--------------: |
+| bitwise AND |     (x & y)      |
+| bitwise OR  |     (x \| y)     |
+| bitwise XOR |     (x ^ y)      |
+| bitwise NOT |     (x ~ y)      |
+|    shift    | x << 1 ／ x >> 1 |
+
+* ビット演算の優先度は`==`等よりも低いので括弧で囲む
+
 ### 文字列`string`
 
 |      操作      |                      記法                      |                             備考                             |
