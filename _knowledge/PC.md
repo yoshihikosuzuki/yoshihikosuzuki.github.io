@@ -8,20 +8,20 @@ order: 1000
 
 ミドルハイ mini-ITX キューブマシン。またまた Amazon Prime Day (と Ryzen3000 発売) をきっかけに。
 
-|      パーツ      |                            購入品                            |     価格     |       備考        |
-| :--------------: | :----------------------------------------------------------: | :----------: | :---------------: |
-|       CPU        | [AMD Ryzen 5 3600X](https://www.amazon.co.jp/dp/B07SQBFN2D)  |              |                   |
-|   マザーボード   | [ASUS B450 ROG STRIX B450-I GAMING](https://www.amazon.co.jp/dp/B07FKTSWNG) |              | 表面 M.2 スロット |
-|       RAM        | [TEAM DDR4 2666Mhz 8GBx2](https://www.amazon.co.jp/dp/B07HJWXKXP) |   6,780円    |     Prime Day     |
-|      グラボ      | [MSI RTX 2060 AERO ITX 6G OC](https://www.amazon.co.jp/dp/B07N2XPBC4) |   39,817円   |                   |
-|       SSD        | [Silicon Power M.2 NVMe SP512GBP34A80M28](https://www.amazon.co.jp/dp/B07MV91LKW) |   7,867円    |     Prime Day     |
-|       電源       | [Silver Stone 80PLUS Gold SST-SX650-G](https://www.amazon.co.jp/dp/B0756NNRB5) |   12,980円   |      ツクモ       |
-| ATX 変換プレート | [長尾製作所 SS-NATXCP-B SS-NATXCP-B](https://www.amazon.co.jp/dp/B00PNVUKW4) |              |                   |
-|      ケース      | [METIS PLUS 0R200055](https://www.amazon.co.jp/dp/B01N9DOWZL) |   4,860円    |      ツクモ       |
-|   ケースファン   |                                                              |              |                   |
-| ケースファン防振 |                                                              |              |                   |
-|        OS        | [Microsoft Windows10 Home 64bit](https://www.amazon.co.jp/dp/B0141WUHFK) |   12,768円   |     Prime Day     |
-|     **合計**     |                                                              | **85,072円** |                   |
+|    パーツ    |                            購入品                            |     価格     |    備考    |
+| :----------: | :----------------------------------------------------------: | :----------: | :--------: |
+|     CPU      | [AMD Ryzen 5 3600X](https://www.amazon.co.jp/dp/B07SQBFN2D)  |              |            |
+| マザーボード | [ASUS B450 ROG STRIX B450-I GAMING](https://www.amazon.co.jp/dp/B07FKTSWNG) |              | 表面に M.2 |
+|     RAM      | [TEAM DDR4 2666Mhz 8GBx2](https://www.amazon.co.jp/dp/B07HJWXKXP) |   6,780円    | Prime Day  |
+|    グラボ    | [MSI RTX 2060 AERO ITX 6G OC](https://www.amazon.co.jp/dp/B07N2XPBC4) |   39,817円   |            |
+|     SSD      | [Silicon Power M.2 NVMe SP512GBP34A80M28](https://www.amazon.co.jp/dp/B07MV91LKW) |   7,867円    | Prime Day  |
+|     電源     | [Silver Stone 80PLUS Gold SST-SX650-G](https://www.amazon.co.jp/dp/B0756NNRB5) |   12,980円   |   ツクモ   |
+| 電源プレート | [長尾製作所 SS-NATXCP-B SS-NATXCP-B](https://www.amazon.co.jp/dp/B00PNVUKW4) |              |            |
+|    ケース    | [METIS PLUS 0R200055](https://www.amazon.co.jp/dp/B01N9DOWZL) |   4,860円    |   ツクモ   |
+| ケースファン |                                                              |              |            |
+|  ファン防振  |                                                              |              |            |
+|      OS      | [Microsoft Windows10 Home 64bit](https://www.amazon.co.jp/dp/B0141WUHFK) |   12,768円   | Prime Day  |
+|   **合計**   |                                                              | **85,072円** |            |
 
 グラボは RX 5700XT もしくは RTX 2060 SUPER のショート基盤が出て値段が落ち着くのを待てなかった。
 
