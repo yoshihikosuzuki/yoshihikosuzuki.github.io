@@ -65,8 +65,8 @@ MinHash は [Locality Sensitive Hashing (LSH)](https://ja.wikipedia.org/wiki/局
 このとき、LSH で用いるハッシュ関数 $h$ が満たすべき性質は、
 
 * $P_2<P_1$, where
-* $\forall p,q\in X\colon d(p,q)\leq R\Rightarrow {\rm P}(h(p)=h(q))\geq P_1$ and
+* $\forall p,q\in X;d(p,q)\leq R\Rightarrow {\rm P}(h(p)=h(q))\geq P_1$ and
 
-* $\forall p,q\in X\colon d(p,q)\geq cR\Rightarrow {\rm P}(h(p)=h(q))\leq P_2$
+* $\forall p,q\in X;d(p,q)\geq cR\Rightarrow {\rm P}(h(p)=h(q))\leq P_2$
 
-簡単な例は、ハミング距離の定義された空間における部分空間への正射影。
+簡単な例は、ハミング距離の定義された空間($=X$)における、その部分空間への正射影($=h$)。

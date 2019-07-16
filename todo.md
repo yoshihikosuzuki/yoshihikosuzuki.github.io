@@ -26,7 +26,7 @@ title: TODO
 ### 研究
 
 * テスト書く
-* bloom filter
+* quotient filter
 
 
 
