@@ -5,7 +5,7 @@ title: TODO
 
 ### GitHub Pages
 
-* 
+* `Invalid theme folder: _includes`解消
 
 
 
@@ -26,13 +26,14 @@ title: TODO
 ### 研究
 
 * テスト書く
-* quotient filter
+* 
 
 
 
 ### その他
 
-* 
+* quotient filter
+* syntax と semantics は双対？
 
 
 
