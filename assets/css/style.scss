@@ -40,6 +40,11 @@
 }
 
 @media print, screen and (max-width: 720px) {
+  #title {
+    color: #f3f3f3;
+    text-align: center;
+  }
+
   #banner {
     .navigation {
       float: left;
