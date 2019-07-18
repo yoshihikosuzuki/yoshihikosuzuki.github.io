@@ -4,56 +4,58 @@
 @import "{{ site.theme }}";
 
 #title {
-    color: #f3f3f3;
+  color: #f3f3f3;
+  margin-left: -31px;
+  text-align: center;
 }
 
 #banner {
-    .navigation {
-        position: fixed;
-        left: 50%;
-        margin-left: -315px;
-        padding: 18px 12px;
-        line-height: 14px;
-        font-size: 18px;
-        
-        a {
-            padding: 0px 0px 0px 8px;
-        }
-    }
+  .navigation {
+    position: fixed;
+    left: 50%;
+    margin-left: -315px;
+    padding: 18px 12px;
+    line-height: 14px;
+    font-size: 18px;
     
-    #site-search {
-        position: fixed;
-        left: 50%;
-        margin-left: 120px;
-        padding: 2px 12px;
-        line-height: 14px;
-        font-size: 14px;
+    a {
+      padding: 0px 0px 0px 8px;
     }
+  }
+  
+  #site-search {
+    position: fixed;
+    left: 50%;
+    margin-left: 120px;
+    padding: 2px 12px;
+    line-height: 14px;
+    font-size: 14px;
+  }
 }
 
 #search-hits {
-    background-color: #e8e5d0;
-    margin: 0px 0px 50px;
-    padding: 10px 5px 1px 10px;
+  background-color: #e8e5d0;
+  margin: 0px 0px 50px;
+  padding: 10px 5px 1px 10px;
 }
 
 @media print, screen and (max-width: 720px) {
-    #banner {
-        .navigation {
-            float: left;
-            display: inline-block;
-            margin-left: 0px;
-            position: fixed;
-            left: 20px;
-        }
-        
-        #site-search {
-            float: right;
-            display: inline-block;
-            margin-right: 0px;
-            position: fixed;
-            right: 18px;
-            left: unset;
-        }
+  #banner {
+    .navigation {
+      float: left;
+      display: inline-block;
+      margin-left: 0px;
+      position: fixed;
+      left: 20px;
     }
+    
+    #site-search {
+      float: right;
+      display: inline-block;
+      margin-right: 0px;
+      position: fixed;
+      right: 18px;
+      left: unset;
+    }
+  }
 }

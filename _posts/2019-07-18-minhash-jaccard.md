@@ -70,3 +70,14 @@ MinHash は [Locality Sensitive Hashing (LSH)](https://ja.wikipedia.org/wiki/局
 * $\forall p,q\in X;d(p,q)\geq cR\Rightarrow {\rm P}(h(p)=h(q))\leq P_2$
 
 簡単な例は、ハミング距離の定義された空間($=X$)における、その部分空間への正射影($=h$)。
+
+
+
+## Nearest Neighbor Search
+
+すでに書いたが、LSH は [Nearest Neighbor Search (NNS; 最近傍探索)](https://ja.wikipedia.org/wiki/最近傍探索) に対するアプローチの一種。
+
+* データが存在するノルム空間の多様性、および
+* 次元の呪い
+
+から、これまで NNS に対する一般のアルゴリズムは悲観的に思われていたようだ(=対象となるデータのノルム空間に応じたアルゴリズムを設計する必要がある)が、2018年に発表された [Data-dependent hashing via nonlinear spectral gaps](https://dl.acm.org/citation.cfm?id=3188846) という論文が「高次元ノルム空間における[非線形スペクトルギャップ](http://geometry.mail-box.ne.jp/pdf.bak/12-kondo.pdf)を LSH に一般的に落とし込むことで、(approximate) NNS に対する新しいアプローチを与えた」ということで最近注目を浴びているらしいので、いつか結果だけでも理解したい。

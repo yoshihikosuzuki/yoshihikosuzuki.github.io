@@ -1,6 +1,5 @@
 theme: jekyll-theme-leap-day
-title: Untitled
-description: Those there alone can see the scene.
+title: Those there alone can see the scene.
 google_analytics: UA-142767811-1
 algolia:
   application_id: WX370V53Q1
