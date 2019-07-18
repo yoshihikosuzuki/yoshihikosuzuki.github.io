@@ -14,20 +14,6 @@ order: 100
 
 
 
-## Homebrew
-
-* `$ brew doctor`
-* `$ brew upgrade`: Homebrew 本体とパッケージのアップデート
-* `$ brew install PACKAGE`, `$ brew uninstall PACKAGE`, `$ brew list`
-
-
-
-## Git & GitHub
-
-[Gitのあらゆるトラブルが解決する神ノウハウ集を翻訳した](https://blog.labot.jp/entry/2019/07/01/183204)
-
-
-
 ## Jupyter Notebook
 
 ```python
@@ -46,6 +32,20 @@ logzero.loglevel(logging.INFO)
 - ログ表示には [logzero](https://logzero.readthedocs.io/en/latest/) を使用、`loglevel`は状況に応じて`DEBUG`に変える
 
 * カスタム CSS は `$HOME/.jupyter/custom/custom.css`
+
+
+
+## Git & GitHub
+
+[Gitのあらゆるトラブルが解決する神ノウハウ集を翻訳した](https://blog.labot.jp/entry/2019/07/01/183204)
+
+
+
+## Homebrew
+
+- `$ brew doctor`
+- `$ brew upgrade`: Homebrew 本体とパッケージのアップデート
+- `$ brew install PACKAGE`, `$ brew uninstall PACKAGE`, `$ brew list`
 
 
 

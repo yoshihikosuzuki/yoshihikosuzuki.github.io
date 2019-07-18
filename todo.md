@@ -12,8 +12,7 @@ title: TODO
 ### 記事案
 
 * よかったもの紹介ページ
-* programming language evolution along with theory
-* DP = Dijkstra = Tropical algebra
+* 計算と代数と幾何 DP = Dijkstra = Tropical algebra, HoTT, Curry-Howard, 単純型付きラムダ計算 ~ 直観主義論理, syntax と semantics は双対？
 
 
 
@@ -33,7 +32,6 @@ title: TODO
 ### その他
 
 * quotient filter
-* syntax と semantics は双対？
 
 
 
