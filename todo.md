@@ -5,7 +5,7 @@ title: TODO
 
 ### GitHub Pages
 
-* 
+* AMQ追記
 
 
 
@@ -13,6 +13,7 @@ title: TODO
 
 * よかったもの紹介ページ
 * 計算と代数と幾何 DP = Dijkstra = Tropical algebra, HoTT, Curry-Howard, 単純型付きラムダ計算 ~ 直観主義論理, syntax と semantics は双対？
+* stack w/o recursion
 
 
 
@@ -31,7 +32,7 @@ title: TODO
 
 ### その他
 
-* quotient filter
+* tagged list に代わる可視化のスタンダード？
 
 
 

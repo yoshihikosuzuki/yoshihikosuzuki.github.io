@@ -40,6 +40,19 @@ using VB = vector<bool>; using VS = vector<string>; using VP = vector<PII>;
 inline LL minMult(LL x, LL n) { return n * (x / n + (x % n == 0 ? 0 : 1)); }
 ```
 
+* 10進数を最上位桁から順に見る
+
+```c++
+LL N;   // 対象の数値 >0
+VI digits;
+LL M = N;
+while (M > 0) {
+    digits.PB(M % 10);
+    M /= 10;
+}
+REVERSE(digits);   // 最下位桁からなら不要
+```
+
 ### ビット演算
 
 |    操作     |       記法       |
