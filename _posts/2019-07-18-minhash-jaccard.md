@@ -66,7 +66,6 @@ MinHash は [Locality Sensitive Hashing (LSH)](https://ja.wikipedia.org/wiki/局
 
 * $P_2<P_1$, where
 * $\forall p,q\in X;d(p,q)\leq R\Rightarrow {\rm P}(h(p)=h(q))\geq P_1$ and
-
 * $\forall p,q\in X;d(p,q)\geq cR\Rightarrow {\rm P}(h(p)=h(q))\leq P_2$
 
 簡単な例は、ハミング距離の定義された空間($=X$)における、その部分空間への正射影($=h$)。
