@@ -35,9 +35,10 @@ title: TODO
 
 ### その他
 
-* tagged list に代わる可視化のスタンダード？
-* 論文仕分け
-* 公理の同型から形式言語を導く
+* 論文仕分けアプリ
+* qiita記事更新
+* 
+* pymc4 vs edward2 vs stan: state-space model and gaussian mixture model
 
 
 
