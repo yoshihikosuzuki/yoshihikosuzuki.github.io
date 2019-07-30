@@ -39,9 +39,9 @@
   padding: 10px 5px 1px 10px;
 }
 
-ul:nth-child(1), ul:nth-child(2), ol:nth-child(1), ol:nth-child(2) {
+ul:nth-child(1), ul:nth-child(2), ol:nth-child(1), ol:nth-child(2), li > ul, li > ol, ul > li, ol > li {
   margin-block-start: unset;
-  margin-block-end: unset;
+  margin-block-end: 3px;
 }
 
 @media print, screen and (max-width: 720px) {

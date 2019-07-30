@@ -36,8 +36,7 @@ title: TODO
 ### その他
 
 * 論文仕分けアプリ
-* qiita記事更新
-* 
+* 「ピアジェ群」と「クライン群」と構造主義
 * pymc4 vs edward2 vs stan: state-space model and gaussian mixture model
 
 
