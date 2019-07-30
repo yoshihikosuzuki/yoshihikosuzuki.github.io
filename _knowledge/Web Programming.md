@@ -98,20 +98,19 @@ order: 230
 
 - `$ npm install --save-dev webpack webpack-cli`
 - [webpack 4 入門](https://qiita.com/soarflat/items/28bf799f7e0335b68186)
-- 複数ファイルに分割して開発された JS, CSS を1つにまとめる(ビルド or モジュールバンドル)
+- 複数ファイルに分割して開発された JS, CSS, etc. を1つの JS ファイルにまとめる(**モジュールバンドル**)
 - Electron と使う場合は`target:electron-main`や`target: electron-renderer`を指定しないとエラーになる
 
 
 
 ## Babel
 
-- `$ npm install --save-dev babel-loader @babel/core @babel/preset-env`
+- `$ npm install --save-dev @babel/core @babel/preset-env`
+  - Webpack と使う場合は`$ npm install --save-dev babel-loader` も
   - React と使う場合は `$ npm install --save-dev @babel/preset-react`も
 - トランスパイラ
-  - 実際にトランスパイルするには元の言語をプラグインで指定する必要がある
-  - React のようなフレームワーク用の決まったプラグイン集合はプリセットで簡単に指定できる
-- [コンフィグファイル](https://babeljs.io/docs/en/configuration#babelconfigjs)の名前と中身は用途によって変わる
-  - Electron (Node) なら`babel.config.js`
+  - 変換したい言語に合わせた**プラグイン**をコンフィグファイル(`.babelrc`等)中に指定する必要がある
+  - React のようなフレームワークには必要なプラグイン集合が**プリセット**で用意されていて、簡単に指定できる
 - Webpack と使う場合は、`webpack.config.js`で`babel-loader`をローダーに指定して、プリセットの指定は以下のどちらかで行う(cf. [Babelのpresetsを設定する2つの方法](https://qiita.com/tmiki/items/86abc565d06ced78d968))
   - `webpack.config.js`に書く場合は`options`で指定する
   - `.babelrc` (not `babel.config.js`)に書く(こちらの方が複数の対象について1つで済むため良さそう)
@@ -124,5 +123,5 @@ order: 230
 - `$ npm --save install react react-dom redux react-redux`
 - [React+Redux入門](https://qiita.com/erukiti/items/e16aa13ad81d5938374e)
 - [Electron+React+Reduxで作るレトロなエクスプローラのハンズオン(チュートリアル)](https://qiita.com/tashxii/items/290a3421d520bdae0c36)
-- 
+- Redux で非同期処理がしたい場合は Redux Middleware を使う(cf. https://numb86-tech.hatenablog.com/entry/2018/04/17/203802)
 
