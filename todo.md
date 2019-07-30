@@ -15,6 +15,7 @@ title: TODO
 * 計算と代数 DP = Dijkstra = Tropical algebra
 * 計算と幾何 HoTT
 * 直観主義論理と構造主義と Curry-Howard: 正しさは証明(構造)にあって命題(構成要素)にない
+* 「ピアジェ群」と「クライン群」と構造主義
 * 計算と意味論 syntax と semantics は双対？
 * stack w/o recursion
 
@@ -23,21 +24,20 @@ title: TODO
 ### 開発
 
 * gmail to iCalendar Chrome extention
+* 論文仕分けアプリ
 
 
 
 ### 研究
 
 * テスト書く
-* 
+* pymc4 vs edward2 vs stan: state-space model and gaussian mixture model
 
 
 
 ### その他
 
-* 論文仕分けアプリ
-* 「ピアジェ群」と「クライン群」と構造主義
-* pymc4 vs edward2 vs stan: state-space model and gaussian mixture model
+* 
 
 
 
