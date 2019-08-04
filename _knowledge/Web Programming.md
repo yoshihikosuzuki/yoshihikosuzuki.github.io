@@ -14,11 +14,12 @@ order: 230
 
 
 
-## Javascript & Node
+## Javascript & CSS
 
 - [イマドキのJavaScriptの書き方2018](https://qiita.com/shibukawa/items/19ab5c381bbb2e09d0d9)
 - [JS ライブラリ、jQuery プラグインまとめ](http://coliss.com/articles/build-websites/operation/javascript/best-javascript-libs-jquery-plugins-2016.html)
-- [Node.js 標準モジュール](http://yohshiy.blog.fc2.com/blog-entry-310.html)
+- [CSSセレクタのチートシート](https://webliker.info/css-selector-cheat-sheet/)
+- [Material-UI](https://material-ui.com/): `$ npm install --save @material-ui/core`
 
 
 
@@ -65,6 +66,13 @@ order: 230
 
 
 
+## Node & Sass
+
+* [Node.js 標準モジュール](http://yohshiy.blog.fc2.com/blog-entry-310.html)
+* Sass を使うなら`$ npm install --save-dev node-sass`
+
+
+
 ## Electron
 
 ### Hello, World
@@ -81,7 +89,7 @@ order: 230
 
 1. (グローバルではなく)レポジトリに Electron をインストール
 2. VSC に拡張機能`Debugger for Chrome`をインストール
-3. [Electron debugging (main and renderer process)](https://github.com/Microsoft/vscode-recipes/tree/master/Electron) の "Configure launch.json File" 以下に従って`.vscode/launch.json`を作成し、実行(F5)
+3. 一度実行(F5)して`.vscode/launch.json`生成後、[公式ドキュメント](https://electronjs.org/docs/tutorial/debugging-main-process-vscode)に従って内容を変更し、再度実行
 
 
 
@@ -106,13 +114,16 @@ order: 230
 - [webpack 4 入門](https://qiita.com/soarflat/items/28bf799f7e0335b68186)
 - 複数ファイルに分割して開発された JS, CSS, etc. を1つの JS ファイルにまとめる(**モジュールバンドル**)
 - Electron と使う場合は`target:electron-main`や`target: electron-renderer`を指定しないとエラーになる
+- ローダー
+  * `$ npm install --save-dev css-loader mini-css-extract-plugin`: CSS
+  * `$ npm install --save-dev sass-loader node-sass`: SCSS
+  * `$ npm install --save-dev babel-loader`: Babel
 
 
 
 ## Babel
 
 - `$ npm install --save-dev @babel/core @babel/preset-env`
-  - Webpack と使う場合は`$ npm install --save-dev babel-loader` も
   - React と使う場合は `$ npm install --save-dev @babel/preset-react`も
 - トランスパイラ
   - 変換したい言語に合わせた**プラグイン**をコンフィグファイル(`.babelrc`等)中に指定する必要がある
@@ -128,6 +139,6 @@ order: 230
 
 - `$ npm --save install react react-dom redux react-redux`
 - [React+Redux入門](https://qiita.com/erukiti/items/e16aa13ad81d5938374e)
-- [Electron+React+Reduxで作るレトロなエクスプローラのハンズオン(チュートリアル)](https://qiita.com/tashxii/items/290a3421d520bdae0c36)
+- [Example: Todo List](https://redux.js.org/basics/example)
 - Redux で非同期処理がしたい場合は Redux Middleware を使う(cf. https://numb86-tech.hatenablog.com/entry/2018/04/17/203802)
 

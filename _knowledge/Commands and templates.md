@@ -14,6 +14,12 @@ order: 100
 
 
 
+## VSCode
+
+* 自動インデント: `Alt + Shift + F`
+
+
+
 ## Jupyter Notebook
 
 ```python
