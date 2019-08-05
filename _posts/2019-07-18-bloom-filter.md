@@ -49,17 +49,23 @@ BF $b$ をビットベクトルから正整数のベクトルに変更し(初期
 
 を定義することができる。$b$ のサイズは大きくなる。
 
+
+
 ### Quotient Filter (QF)
 
 https://arxiv.org/abs/1208.0290
 
 CQ よりも高空間効率
 
+
+
 ### Rank-and-Select-based Quotient Filter (RSQF)
 
 https://dl.acm.org/citation.cfm?id=3035963
 
 下の CQF のための準備的定義
+
+
 
 ### Counting Quotient Filter (CQF)
 

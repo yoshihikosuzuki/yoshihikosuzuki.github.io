@@ -73,6 +73,13 @@ order: 230
 
 
 
+### JSON ファイル入出力
+
+- 入力(JSON ファイル -> JSON 文字列 -> JS Object): `const data = JSON.parse(fs.readFileSync(fileName, 'utf8'))`
+- 出力(JS Object -> JSON 文字列 -> JSON ファイル): `fs.writeFile(fileName, JSON.stringify(data))`
+
+
+
 ## Electron
 
 ### Hello, World
@@ -82,6 +89,8 @@ order: 230
    - `package.json`中の`"main"`は上の`main.js`に変更しておく
 3. `$ electron .`で実行
    - npm script で`"start": "electron ."`としておけば、`$ npm start`でも OK
+
+4. アプリケーション実行ファイルの生成には [electron-packager](https://github.com/electron/electron-packager) を使う(`$ npm install -g electron-packager`)
 
 
 
@@ -95,16 +104,24 @@ order: 230
 
 ### Electron 実行時の処理の流れ
 
-1. `electron DIR_NAME`すると、` DIR_NAME/package.json`の`"main"`で指定されている js ファイル(ここでは`main.js`)が実行される
-   * 作業ディレクトリは`DIR_NAME`
-2. `app.on('ready', …)`の中で`createWindow`もしくはそれと同等の関数が呼び出され、ウィンドウを生成
-3. `createWindow`の中で`electron.BrowserWindow`インスタンスの`loadURL()`を使って`index.html`が読み込まれる
+1. `electron DIR_NAME`すると、` DIR_NAME/package.json`の`"main"`で指定されている js ファイル(`main.js`)が実行される
+2. `app.on('ready', …)`の`createWindow`でウィンドウが生成される
+3. `createWindow`の中で、`electron.BrowserWindow`インスタンスの`loadURL()`で`index.html`が読み込まれる
 
 
 
-### アプリケーション実行ファイルの生成
+### Main-Renderer 間のやり取り
 
-- [electron-packager](https://github.com/electron/electron-packager) を使う(`$ npm install -g electron-packager`)
+- プロセス間通信(IPC)を使う
+- `ipc`は現在の API には無く、代わりに [ipcMain](https://electronjs.org/docs/api/ipc-main)/[ipcRederer](https://electronjs.org/docs/api/ipc-renderer) を使う(cf. [ElectronのIPCをまとめる](https://qiita.com/gcmae/items/cb6eb18be2f4ffae60b5))
+  - `<channel>`は文字列、`<listerner>`は`(event, arg) => {...}`という関数
+    - `event.returnValue`に代入すれば同期的に返信(送信側の返り値になる)
+    - `event.sender.Send(<channel>[, <args>])`で非同期的に返信(再度`on`で受信)
+
+| Sender -> Receiver (非同期通信) | Method in Sender                                      | Method in Receiver                    |
+| ------------------------------- | ----------------------------------------------------- | ------------------------------------- |
+| Main -> Renderer                | <BrowserWindow>.webContents.send(<channel>[, <args>]) | ipcRenderer.on(<chennel>, <listener>) |
+| Renderer -> Main                | ipcRenderer.send(<channel>[, <args>])                 | ipcMain.on(<channel>, <listener>)     |
 
 
 
