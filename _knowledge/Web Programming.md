@@ -4,7 +4,7 @@ title: Web プログラミング(フロントエンド)覚書
 order: 230
 ---
 
-<img src="https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/frontend.png">
+<img src="https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/frontend.png" width=800px>
 
 ([Roadmap to becoming a web developer in 2019](https://github.com/kamranahmedse/developer-roadmap) より引用)
 
@@ -14,49 +14,38 @@ order: 230
 
 
 
-## Javascript & CSS
+## Javascript (ES2015 = ES6)
 
 - [イマドキのJavaScriptの書き方2018](https://qiita.com/shibukawa/items/19ab5c381bbb2e09d0d9)
-- [JS ライブラリ、jQuery プラグインまとめ](http://coliss.com/articles/build-websites/operation/javascript/best-javascript-libs-jquery-plugins-2016.html)
-- [CSSセレクタのチートシート](https://webliker.info/css-selector-cheat-sheet/)
-- [Material-UI](https://material-ui.com/): `$ npm install --save @material-ui/core`
 
 
 
-## npm (Node Package Manager)
+## Node
 
-- [npmコマンドの使い方](https://qiita.com/yoh-nak/items/8446bf12094c729d00fe)
+### npm (Node Package Manager)
 
+* 新規プロジェクト作成
+  * `$ npm init -y` (`-y`は非対話モード)
+  * `package.json`が作られる
 
-
-### 新規プロジェクトの作成
-
-1. (GitHub にレポジトリ作成、ローカルに clone)
-2. レポジトリの root で`$ npm init -y` (`-y`は非対話モード)すると、`package.json`が作成される
-
-
-
-### パッケージのインストール
-
-- `node_modules/`にインストールしたモジュールや実行ファイルには自動でパスが通るので、後述の npm scripts や`require()`ではプレフィックスは不要
+* パッケージのインストール
+  * `node_modules/`にインストールしたモジュールや実行ファイルには自動でパスが通るので、後述の npm scripts や`require()`ではプレフィックスは不要
 
 | コマンド                                | インストール先    | `package.json`との関係                                       | 用途                                |
 | --------------------------------------- | ----------------- | ------------------------------------------------------------ | ----------------------------------- |
-| `$ npm install -g パッケージ名`         | 環境全体          | 依存関係には追加されない([が、記述すべき](https://qiita.com/Jxck_/items/efaff21b977ddc782971#%E3%83%84%E3%83%BC%E3%83%AB%E3%82%82-packagejson-%E3%81%A7)) | 頻繁に使用するパッケージ？          |
+| `$ npm install -g パッケージ名`         | 環境全体          | 依存関係には追加されない([が、記述すべき](https://qiita.com/Jxck_/items/efaff21b977ddc782971#%E3%83%84%E3%83%BC%E3%83%AB%E3%82%82-packagejson-%E3%81%A7)) | 基本的に使わない                    |
 | `$ npm install --save-dev パッケージ名` | `./node_modules/` | `devDependencies`にパッケージ名を追加                        | 開発時にだけ使用するパッケージ      |
 | `$ npm install --save パッケージ名`     | `./node_modules/` | `dependencies`にパッケージ名を追加                           | 実行時に(も)使用するパッケージ      |
 | `$ npm install`                         | `./node_modules/` | 記述されている依存パッケージを全てインストール               | 既存レポジトリを clone した場合など |
 
-- `$ npm outdated [-g|--save|--save-dev]`で現在インストールされているバージョンと最新のバージョンを確認できる
+- 現在インストールされているバージョンと最新のバージョンを確認
+  - `$ npm outdated [-g|--save|--save-dev]`
   - アップデート自体はインストールと同じコマンドで可能
 
-
-
-### npm scripts
-
-* `package.json`中の`"scripts"`で定義されたコマンド群のこと
-* `$ npm run`で一覧を表示できる
-* 以下のような記述のとき、`タスク名` = `install`, `start`, `test`等なら`$ npm タスク名`で、その他(`build`等)は`$ npm run タスク名`で、`コマンド`を実行可能
+* npm scripts
+  * `package.json`中の`"scripts"`で定義されたコマンド群のこと
+  * `$ npm run`で一覧を表示できる
+  * 以下のような記述のとき、`タスク名` = `install`, `start`, `test`等なら`$ npm タスク名`で、その他(`build`等)は`$ npm run タスク名`で、`コマンド`を実行可能
 
 ```json
 "scripts": {
@@ -66,17 +55,23 @@ order: 230
 
 
 
-## Node & Sass
+### 標準モジュール
 
 * [Node.js 標準モジュール](http://yohshiy.blog.fc2.com/blog-entry-310.html)
-* Sass を使うなら`$ npm install --save-dev node-sass`
+
+* JSON ファイル入力(JSON ファイル -> JSON 文字列 -> JS Object)
+  * `const data = JSON.parse(fs.readFileSync(fileName, 'utf8'))`
+* JSON ファイル出力(JS Object -> JSON 文字列 -> JSON ファイル)
+  * `fs.writeFile(fileName, JSON.stringify(data))`
 
 
 
-### JSON ファイル入出力
+## CSS, Sass, JS (design)
 
-- 入力(JSON ファイル -> JSON 文字列 -> JS Object): `const data = JSON.parse(fs.readFileSync(fileName, 'utf8'))`
-- 出力(JS Object -> JSON 文字列 -> JSON ファイル): `fs.writeFile(fileName, JSON.stringify(data))`
+- [JS ライブラリ、jQuery プラグインまとめ](http://coliss.com/articles/build-websites/operation/javascript/best-javascript-libs-jquery-plugins-2016.html)
+- [CSSセレクタのチートシート](https://webliker.info/css-selector-cheat-sheet/)
+- [Material-UI](https://material-ui.com/): `$ npm install --save @material-ui/core`
+- Node と Sass を使うなら`$ npm install --save-dev node-sass`
 
 
 
