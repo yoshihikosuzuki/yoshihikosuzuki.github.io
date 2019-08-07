@@ -99,13 +99,14 @@ order: 230
 
 ### Electron 実行時の処理の流れ
 
-1. `electron DIR_NAME`すると、` DIR_NAME/package.json`の`"main"`で指定されている js ファイル(`main.js`)が実行される
+1. `electron DIR_NAME`すると、` DIR_NAME/package.json`の`"main"`で指定されている JS ファイル(`main.js`)が Main process として実行される
 2. `app.on('ready', …)`の`createWindow`でウィンドウが生成される
 3. `createWindow`の中で、`electron.BrowserWindow`インスタンスの`loadURL()`で`index.html`が読み込まれる
+4. `index.html`で読み込まれる JS ファイルが Renderer process として実行される
 
 
 
-### Main-Renderer 間のやり取り
+### Main-Renderer プロセス間のやり取り
 
 - プロセス間通信(IPC)を使う
 - `ipc`は現在の API には無く、代わりに [ipcMain](https://electronjs.org/docs/api/ipc-main)/[ipcRederer](https://electronjs.org/docs/api/ipc-renderer) を使う(cf. [ElectronのIPCをまとめる](https://qiita.com/gcmae/items/cb6eb18be2f4ffae60b5))
