@@ -28,6 +28,12 @@ title: TODO
 
 * テスト書く
 * tensorflow probability
+* コマンドライン(Runner)と Jupyter (Viewer)の両方に対応する実装
+* datruf リファクタリング、本番コード
+  * 開発用 Jupyter NB 作成
+* resultに一本化、最初から全データ使う
+  * 同じディレクトリにJupyter Notebook作成
+* class Read は様々な形態を取る、これを1つのファイルにまとめて管理したい -> types.py
 
 
 

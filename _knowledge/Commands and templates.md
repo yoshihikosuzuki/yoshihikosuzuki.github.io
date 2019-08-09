@@ -41,6 +41,12 @@ logzero.loglevel(logging.INFO)
 
 
 
+## SGE
+
+* `qstat -f`: 全ノードの状態を表示(`qtop` -> `s`と同じ)
+
+
+
 ## Git & GitHub
 
 [Gitのあらゆるトラブルが解決する神ノウハウ集を翻訳した](https://blog.labot.jp/entry/2019/07/01/183204)
