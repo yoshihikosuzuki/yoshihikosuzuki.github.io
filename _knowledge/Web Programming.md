@@ -94,6 +94,7 @@ order: 230
 1. (グローバルではなく)レポジトリに Electron をインストール
 2. VSC に拡張機能`Debugger for Chrome`をインストール
 3. 一度実行(F5)して`.vscode/launch.json`生成後、[公式ドキュメント](https://electronjs.org/docs/tutorial/debugging-main-process-vscode)に従って内容を変更し、再度実行
+   * ビルドはしてくれないので、コードを変更したらターミナルでビルドし直してから再度実行
 
 
 
@@ -118,6 +119,13 @@ order: 230
 | ------------------------------- | ----------------------------------------------------- | ------------------------------------- |
 | Main -> Renderer                | <BrowserWindow>.webContents.send(<channel>[, <args>]) | ipcRenderer.on(<chennel>, <listener>) |
 | Renderer -> Main                | ipcRenderer.send(<channel>[, <args>])                 | ipcMain.on(<channel>, <listener>)     |
+
+
+
+### 設定ファイル
+
+* [electron-store](https://github.com/sindresorhus/electron-store) を使う
+* デフォルトでは`/Users/USER_NAME/Library/Application\ Support/APP_NAME/config.json`に保存される
 
 
 
