@@ -28,6 +28,8 @@ order: 100
 from IPython.display import display
 import plotly.offline as py
 py.init_notebook_mode(connected=False)
+import plotly.io as pio
+pio.templates.default = "none"
 import logging
 import logzero
 logzero.loglevel(logging.INFO)
@@ -36,6 +38,7 @@ logzero.loglevel(logging.INFO)
 - `display`は例えばセルの途中で(ループの中でとか) pandas.DataFrame を表形式で表示したい時とかに使う
 - リモートサーバから X11 Forwarding して使うことだけを想定しているので、Plotly はオンライン限定
 - ログ表示には [logzero](https://logzero.readthedocs.io/en/latest/) を使用、`loglevel`は状況に応じて`DEBUG`に変える
+- `Shift + Tab`で関数・クラスの init signature 表示
 
 * カスタム CSS は `$HOME/.jupyter/custom/custom.css`
 

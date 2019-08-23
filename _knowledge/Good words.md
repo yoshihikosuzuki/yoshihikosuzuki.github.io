@@ -12,3 +12,9 @@ order: 210
 
 > 良い入門書は、まず最初に「私たちは何を知らないのか」を問います。「私たちはなぜそのことを知らないままで今日まで済ませてこられたのか」を問います。
 
+
+
+* George Box
+
+> All models are wrong, but some are useful.
+
