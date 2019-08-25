@@ -16,30 +16,54 @@ Genome sequence assembly is an inverse problem of reconstructing an original str
 ### Education
 
 * The University of Tokyo, Japan
-  * Apr 2011 – Mar 2015, **B.S.** in Bioinformatics and Systems Biology
-    * Thesis title: "Metagenome assembly using PacBio long read"
+  * Apr 2017 – Mar 2020 (expected), **Candidate for Ph.D.** in Computational Biology
+    - Research theme: Vertebrate centromere sequence assembly using noisy long reads
   * Apr 2015 – Mar 2017, **M.S.** in Computational Biology
     * Thesis title: "*De novo* metagenome assembly and methylation-guided host-matching of mobile elements using SMRT sequencing"
-  * Apr 2017 – Mar 2020 (expected), **Candidate for Ph.D.** in Computational Biology
-    * Research theme: Vertebrate centromere sequence assembly using noisy long reads
+  * Apr 2011 – Mar 2015, **B.S.** in Bioinformatics and Systems Biology
+    * Thesis title: "Metagenome assembly using PacBio long read"
 
 
 
 ### Fellowships & Experience
 
-* Apr 2015 – Mar 2018, JSPS Program for Leading Graduate Schools scholarship
-* Dec 2015 – Jan 2016 & Dec 2016 – Jan 2017, Teaching Assistant at The University of Tokyo, Japan
-* Jul 2016 – Jun 2017, Intern at National Graduate Institute for Policy Studies, Japan
-* Sep 2017 – Mar 2018, Visiting Researcher at Prof. Gene Myers lab of Max Planck Institute of Molecular Cell Biology and Genetics, Germany
 * Apr 2018 – Mar 2020 (expected), JSPS Research Fellowship for Young Scientists DC2
+* Sep 2017 – Mar 2018, Visiting Researcher at Prof. Gene Myers lab of Max Planck Institute of Molecular Cell Biology and Genetics, Germany
+* Jul 2016 – Jun 2017, Intern at National Graduate Institute for Policy Studies, Japan
+* Dec 2015 – Jan 2016 & Dec 2016 – Jan 2017, Teaching Assistant at The University of Tokyo, Japan
+* Apr 2015 – Mar 2018, JSPS Program for Leading Graduate Schools scholarship
 
 
 
 ### Awards
 
-* Excellent Research Award (Best award) for Master's thesis
+* Excellent Research Award (Best award) for Master's thesis, 2017
 
-  
+
+
+### Publications
+
+* [TODO: Mobilome]
+* Y. Suzuki and S. Morishita, Long read を用いたメタゲノム解析, 実験医学別冊 メタゲノム解析 実験ハンドブック, 羊土社, 2016
+
+
+
+### Conference presentations (presenter in bold style)
+
+#### Talk
+
+* **K. Ikeuchi**, Y. Suzuki and Y. Hara, 企業のプレスリリース情報を用いたイノベーションの価値の測定, 日本経済学会, kyoto, Japan, Jun 2017
+* **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, M. Hattori and S. Morishita. Highly diversified metamethylome and metamobilome in human gut metagenomes. SMRTLeiden, Leiden, Netherland. May 2017.
+* **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, M. Hattori and S. Morishita. Metagenome, metamobilome and meta-methylome of human gut flora uncovered by SMRT sequencing. Advances in Genome Biology and Technology General Meeting, Hollywood, Florida. Feb 2017.
+
+#### Poster
+
+- **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, M. Hattori and S. Morishita. De novometagenome assembly and methylome of the human gut microbiome using SMRT sequencing. Cold Spring Harbor Laboratory Meeting, New York. May 2017.
+- **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, J. Taniguchi, J. Yoshimura, M. Hattori and S. Morishita. Meta-methylome analysis with SMRT sequencing revealed a diversity of DNA methylation motifs in uncultured human gut microbiomes. The Biology of Genomes, Cold Spring Harbor Laboratory Meeting, New York. May 2016.
+- **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, J. Taniguchi, J. Yoshimura, M. Hattori and S. Morishita. Meta-methylome of human gut microbiome using SMRT sequencing. Advances in Genome Biology and Technology General Meeting, Orlando, Florida. Feb 2016.
+- **Y. Suzuki**, J. Taniguchi, J. Yoshimura, K. Oshima, M. Hattori and S. Morishita. De novo metagenome assembly using PacBio long reads. The Biology of Genomes, Cold Spring Harbor Laboratory Meeting, New York. May 2015.
+
+
 
 ### Skills
 
