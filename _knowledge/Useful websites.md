@@ -4,6 +4,8 @@ title: 役立つサイト
 order: 150
 ---
 
+普段はほとんど訪れないけど、たまにとても必要になるサイトたち。
+
 
 
 ## バイオインフォマティクス
@@ -23,8 +25,6 @@ order: 150
 
 * [Browse the State-of-the-Art in Machine Learning](https://paperswithcode.com/sota)
   * 各分野の論文や実装
-* [AllenNLP](https://allennlp.org/)
-  * Python の自然言語処理用パッケージ
 * [Deep Learning JP](https://deeplearning.jp/)
   * 松尾先生のやつ
 * [My Neural Network isn't working! What should I do?](http://theorangeduck.com/page/neural-network-not-working)
@@ -42,4 +42,11 @@ order: 150
   * 数式入りのちょっとした図を作るのに便利 (Keynote + LaTeXiT とかもよく使う)
 * [web.dev](https://web.dev/)
   * Web サイトの改善点チェックや Web 技術の学習ができる
+
+
+
+## その他
+
+* [Tokyo Art Beat](http://www.tokyoartbeat.com/)
+  * 東京都内の美術館特別展やギャラリーの情報
 
