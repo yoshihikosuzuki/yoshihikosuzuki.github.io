@@ -6,6 +6,13 @@ order: 100
 
 
 
+## Trello
+
+* `?`: ヘルプ表示
+* `B`: ボード一覧表示
+
+
+
 ## Emacs
 
 * 複数行挿入: 範囲の先頭で `C-x space` -> 範囲の末尾に移動して `C-t` -> 文字入力
@@ -22,23 +29,25 @@ order: 100
 
 ## Jupyter Notebook
 
+* 以下のテンプレートを拡張機能の [Snippets Menu](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/snippets_menu/readme.html) で登録
+  * `display`は例えばセルの途中で(ループの中でとか) pandas.DataFrame を表形式で表示したい時とかに使う
+  * [Plotly](https://plot.ly/python/) はバージョン4を想定
+  * ログ表示には [logzero](https://logzero.readthedocs.io/en/latest/) を使用、`loglevel`は状況に応じて`DEBUG`に変える
+
 ```python
 %matplotlib inline
-%config InlineBackend.figure_format = "retina"
+%config InlineBackend.figure_format = 'retina'
 from IPython.display import display
 import plotly.offline as py
-py.init_notebook_mode(connected=False)
+py.init_notebook_mode(connected=True)
 import plotly.io as pio
-pio.templates.default = "none"
+pio.templates.default = 'plotly_white'
 import logging
 import logzero
 logzero.loglevel(logging.INFO)
 ```
 
-- `display`は例えばセルの途中で(ループの中でとか) pandas.DataFrame を表形式で表示したい時とかに使う
-- リモートサーバから X11 Forwarding して使うことだけを想定しているので、Plotly はオンライン限定
-- ログ表示には [logzero](https://logzero.readthedocs.io/en/latest/) を使用、`loglevel`は状況に応じて`DEBUG`に変える
-- `Shift + Tab`で関数・クラスの init signature 表示
+- 関数・クラスの名前の上で`Shift + Tab`で init signature 表示
 
 * カスタム CSS は `$HOME/.jupyter/custom/custom.css`
 

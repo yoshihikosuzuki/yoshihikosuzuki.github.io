@@ -477,6 +477,12 @@ EACH(p : pairs) {
 REP(i, N) {   // 1-indexの場合は FOR(i, 1, N + 1) にする
     /* uf.getRoot(i) が i の属する集合の根 */
 }
+
+// 無向グラフの連結成分
+map<LL, set<LL>> ccs;
+REP(i, N) {   // 1-indexの場合は FOR(i, 1, N + 1) にする
+  ccs[uf.getRoot(i)].insert(i);
+}
 ```
 
 - 区間の集合と(多数の)座標が与えられた時の区間所属判定
@@ -586,16 +592,16 @@ vector<Point> moves{Point{-1, 0, 0}, Point{1, 0, 0}, Point{0, -1, 0}, Point{0, 1
 
 VVI X(H, VI(W));   // or VS X(H); 平面(H, W)の状態; visited と役割が被るなら無くても良い
 vector<VB> visited(H, VB(W));
-queue<Node> q;
+queue<Point> q;
 q.push(Point{x, y, 0});   // 探索開始点の距離を0とする
 //LL max_d = 0;   // 探索開始点からの最大マンハッタン距離を求める場合
 while (!q.empty()) {
     Point p = q.front(); q.pop();
     if (0 <= p.x && p.x < H && 0 <= p.y && p.y < W && !visited[p.x][p.y]) {
         visited[p.x][p.y] = true;
-        //max_d = q.d;
+        //max_d = p.d;
         EACH(move, moves) {
-            q.push(Point{p.x + move.x, p.y + move.y, q.d + 1});
+            q.push(Point{p.x + move.x, p.y + move.y, p.d + 1});
         }
     }
 }
