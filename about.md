@@ -7,13 +7,13 @@ title: About
 
 
 
-### Research theme
+## Research theme
 
-Genome sequence assembly is an inverse problem of reconstructing an original string (of the order of gigabyte in length) from a set of its substrings (of kilobyte) with observation error. Its difficulty depends on the content of the original string, and my research theme is assembly of the most difficult class of sequences: *i.e.*, repetitive sequences. I have been developing algorithms and software for more theorized and accurate assembly of repetitive sequences through interpreting the genome assembly problem with a framework of Bayesian statistics. Recent ongoing work on centromeric tandem repeat sequence assembly is here: https://github.com/yoshihikosuzuki/CentromereAssembly.
+Genome sequence assembly is an inverse problem of reconstructing an original string (of the order of gigabyte in length) from a set of its substrings (of kilobyte) with observation error. Its difficulty depends on the content of the original string, and my research theme is assembly of the most difficult class of sequences: *i.e.*, repetitive sequences. I have been developing algorithms and software for more theorized and accurate assembly of repetitive sequences through interpreting the genome assembly problem with a framework of Bayesian statistics. Recent ongoing work on centromeric tandem repeat sequence assembly is here: [https://github.com/yoshihikosuzuki/CentromereAssembly](https://github.com/yoshihikosuzuki/CentromereAssembly).
 
 
 
-### Education
+## Education
 
 * The University of Tokyo, Japan
   * Apr 2017 – Mar 2020 (expected), **Candidate for Ph.D.** in Computational Biology
@@ -25,7 +25,7 @@ Genome sequence assembly is an inverse problem of reconstructing an original str
 
 
 
-### Fellowships & Experience
+## Fellowships & Experience
 
 * Apr 2018 – Mar 2020 (expected), JSPS Research Fellowship for Young Scientists DC2
 * Sep 2017 – Mar 2018, Visiting Researcher at Prof. Gene Myers lab of Max Planck Institute of Molecular Cell Biology and Genetics, Germany
@@ -35,28 +35,28 @@ Genome sequence assembly is an inverse problem of reconstructing an original str
 
 
 
-### Awards
+## Awards
 
 * Excellent Research Award (Best award) for Master's thesis, 2017
 
 
 
-### Publications
+## Publications
 
 * [TODO: Mobilome]
-* Y. Suzuki and S. Morishita, Long read を用いたメタゲノム解析, 実験医学別冊 メタゲノム解析 実験ハンドブック, 羊土社, 2016
+* Y. Suzuki and S. Morishita. Long read を用いたメタゲノム解析, 実験医学別冊 メタゲノム解析 実験ハンドブック. 羊土社. 2016.
 
 
 
-### Conference presentations (presenter in bold style)
+## Conference presentations (presenter in bold style)
 
-#### Talk
+### Talk
 
-* **K. Ikeuchi**, Y. Suzuki and Y. Hara, 企業のプレスリリース情報を用いたイノベーションの価値の測定, 日本経済学会, kyoto, Japan, Jun 2017
+* **K. Ikeuchi**, Y. Suzuki and Y. Hara. 企業のプレスリリース情報を用いたイノベーションの価値の測定. 日本経済学会. kyoto, Japan. Jun 2017.
 * **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, M. Hattori and S. Morishita. Highly diversified metamethylome and metamobilome in human gut metagenomes. SMRTLeiden, Leiden, Netherland. May 2017.
 * **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, M. Hattori and S. Morishita. Metagenome, metamobilome and meta-methylome of human gut flora uncovered by SMRT sequencing. Advances in Genome Biology and Technology General Meeting, Hollywood, Florida. Feb 2017.
 
-#### Poster
+### Poster
 
 - **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, M. Hattori and S. Morishita. De novometagenome assembly and methylome of the human gut microbiome using SMRT sequencing. Cold Spring Harbor Laboratory Meeting, New York. May 2017.
 - **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, J. Taniguchi, J. Yoshimura, M. Hattori and S. Morishita. Meta-methylome analysis with SMRT sequencing revealed a diversity of DNA methylation motifs in uncultured human gut microbiomes. The Biology of Genomes, Cold Spring Harbor Laboratory Meeting, New York. May 2016.
@@ -65,12 +65,10 @@ Genome sequence assembly is an inverse problem of reconstructing an original str
 
 
 
-### Skills
+## Skills
 
 * Python, C++, Bayesian statistics, string algorithm
-* Basics of web front-end programming (Node.js, React & Redux, and Electron)
+* Basics of front-end Web programming (Node.js, React & Redux, and Electron) [Project example](https://github.com/yoshihikosuzuki/PaperSorter)
 * Applied Information Technology Engineer, JUPA Psychology Proficiency Test Grade 1
-
 * AtCoder max rating: 1445, light blue (Jun 2019; id: yetnone)
-
 * TOEIC score 900 (Jun 2018)
