@@ -40,8 +40,7 @@ import logzero
 logzero.loglevel(logging.INFO)
 ```
 
-- 関数・クラスの名前の上で`Shift + Tab`で init signature 表示
-
+* 関数・クラスの名前の上で`Shift + Tab`で init signature 表示
 * カスタム CSS は `$HOME/.jupyter/custom/custom.css`
 
 
@@ -75,5 +74,4 @@ logzero.loglevel(logging.INFO)
 ## Python
 
 * [yapf - A formatter for Python files](https://github.com/google/yapf)
-
 * [2to3](https://docs.python.org/ja/3/library/2to3.html)
