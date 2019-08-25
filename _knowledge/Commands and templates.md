@@ -1,15 +1,8 @@
 ---
 layout: knowledge
-title: よく使うコマンドやテンプレート達
+title: たまによく使う(？)コマンドやテンプレート
 order: 100
 ---
-
-
-
-## Trello
-
-* `?`: ヘルプ表示
-* `B`: ボード一覧表示
 
 
 
@@ -76,3 +69,11 @@ logzero.loglevel(logging.INFO)
 ## Typora
 
 * width: 1400px
+
+
+
+## Python
+
+* [yapf - A formatter for Python files](https://github.com/google/yapf)
+
+* [2to3](https://docs.python.org/ja/3/library/2to3.html)

@@ -19,6 +19,19 @@ order: 150
 
 
 
+## 機械学習
+
+* [Browse the State-of-the-Art in Machine Learning](https://paperswithcode.com/sota)
+  * 各分野の論文や実装
+* [AllenNLP](https://allennlp.org/)
+  * Python の自然言語処理用パッケージ
+* [Deep Learning JP](https://deeplearning.jp/)
+  * 松尾先生のやつ
+* [My Neural Network isn't working! What should I do?](http://theorangeduck.com/page/neural-network-not-working)
+  * タイトルの通り
+
+
+
 ## Web サービス
 
 * [Slack App Directory](https://slack.com/apps)
