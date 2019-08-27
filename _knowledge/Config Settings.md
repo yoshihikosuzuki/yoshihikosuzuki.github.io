@@ -155,8 +155,6 @@ cd emacs-flymake-cursor
  '(help-at-pt-display-when-idle '(flymake-overlay)))
 ```
 
-
-
 ## tmux
 
 * `$HOME/.tmux.conf`
@@ -182,8 +180,6 @@ bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
 ```
 
-
-
 ## Alacritty
 
 * `$HOME/.config/alacritty/alacritty.yml`
@@ -208,4 +204,3 @@ bind -n M-Down select-pane -D
   - { key: Right,    mods: Command, chars: "\x02\x1b\x5b\x43"            }
   - { key: Left,     mods: Command, chars: "\x02\x1b\x5b\x44"            }
 ```
-
