@@ -27,14 +27,14 @@ using VB = vector<bool>; using VS = vector<string>; using VP = vector<PII>;
 
 ### 数値
 
-|         操作          |                      記法                      |
-| :-------------------: | :--------------------------------------------: |
-|    最大値・最小値     |          [INT\|LLONG\|DBL]_[MAX\|MIN]          |
-|  double を N 桁表示   |     cout << setprecision(N) << X << endl;      |
-| 小数点以下 N 桁を表示 | cout << fixed << setprecision(N) << X << endl; |
+| 操作             | 記法                                             |
+|:--------------:|:----------------------------------------------:|
+| 最大値・最小値        | [INT\|LLONG\|DBL]_[MAX\|MIN]                   |
+| double を N 桁表示 | cout << setprecision(N) << X << endl;          |
+| 小数点以下 N 桁を表示   | cout << fixed << setprecision(N) << X << endl; |
 
 * X以上の最小のNの倍数
-  * 何倍か知りたいだけの場合は最初の`n *`を消す
+   * 何倍か知りたいだけの場合は最初の`n *`を消す
 
 ```c++
 inline LL minMult(LL x, LL n) { return n * (x / n + (x % n == 0 ? 0 : 1)); }
@@ -55,26 +55,26 @@ REVERSE(digits);   // 最下位桁からなら不要
 
 ### ビット演算
 
-|    操作     |       記法       |
-| :---------: | :--------------: |
-| bitwise AND |     (x & y)      |
-| bitwise OR  |     (x \| y)     |
-| bitwise XOR |     (x ^ y)      |
-| bitwise NOT |     (x ~ y)      |
-|    shift    | x << 1 ／ x >> 1 |
+| 操作          | 記法              |
+|:-----------:|:---------------:|
+| bitwise AND | (x & y)         |
+| bitwise OR  | (x \| y)        |
+| bitwise XOR | (x ^ y)         |
+| bitwise NOT | (x ~ y)         |
+| shift       | x << 1 ／ x >> 1 |
 
 * ビット演算の優先度は`==`等よりも低いので括弧で囲む
 
 ### 文字列`string`
 
-|      操作      |                      記法                      |                             備考                             |
-| :------------: | :--------------------------------------------: | :----------------------------------------------------------: |
-|     初期化     |        string X(S);<br>string X(N, C);         | 例) `string X("abc");`<br>例) `stirng X(5, 'a');`   // "aaaaa" |
-|   部分文字列   |                 X.substr(i, N)                 | X[i] から N 文字を切り出す<br>例) `string("abcde").substr(2, 2)` は "cd" |
-|    存在判定    | if (X.find(S) != string::npos) { /* EXIST */ } |                                                              |
-| 先頭・末尾検索 |        (LL)X.find(S) ／ (LL)X.rfind(S)         |               返り値は先頭[末尾]のマッチの位置               |
-|  数値から変換  |                  to_string(N)                  |                    double の桁埋めは不可                     |
-|   数値に変換   |         stoll(X) ／ stoi(X) ／ stod(X)         |       X をバイナリ扱いする場合は stoll(X, nullptr, 2)        |
+| 操作      | 記法                                             | 備考                                                            |
+|:-------:|:----------------------------------------------:|:-------------------------------------------------------------:|
+| 初期化     | string X(S);<br>string X(N, C);                | 例) `string X("abc");`<br>例) `stirng X(5, 'a');`   // "aaaaa"  |
+| 部分文字列   | X.substr(i, N)                                 | X[i] から N 文字を切り出す<br>例) `string("abcde").substr(2, 2)` は "cd" |
+| 存在判定    | if (X.find(S) != string::npos) { /* EXIST */ } |                                                               |
+| 先頭・末尾検索 | (LL)X.find(S) ／ (LL)X.rfind(S)                 | 返り値は先頭[末尾]のマッチの位置                                             |
+| 数値から変換  | to_string(N)                                   | double の桁埋めは不可                                                |
+| 数値に変換   | stoll(X) ／ stoi(X) ／ stod(X)                   | X をバイナリ扱いする場合は stoll(X, nullptr, 2)                           |
 
 * 全マッチ位置列挙
 
@@ -94,11 +94,11 @@ auto P = findAll("abcdeacac", "a");   // P = {0, 5, 7}
 
 ### 動的配列`vector`
 
-|      操作      |                           記法                            |
-| :------------: | :-------------------------------------------------------: |
-|      宣言      |                    vector\<T> X(N, E);                    |
-|   二次元配列   |                  VV(T) X(N1, VI(N2, E));                  |
-|  最大・最小値  |      \*max_element(ALL(X)) ／ \*min_element(ALL(X))       |
+| 操作       | 記法                                                        |
+|:--------:|:---------------------------------------------------------:|
+| 宣言       | vector\<T> X(N, E);                                       |
+| 二次元配列    | VV(T) X(N1, VI(N2, E));                                   |
+| 最大・最小値   | \*max_element(ALL(X)) ／ \*min_element(ALL(X))             |
 | 存在判定(二分) | SORT(X);<br>if (binary_search(ALL(X), E)) { /* EXIST */ } |
 
 * `vector<pair>`のソート
@@ -144,7 +144,7 @@ LL index = upper_bound(ALL(X), E) - X.begin();   // Eより大きい最小値と
 if (index == SZ(X)) {
     /* Aにそのような要素は存在しない */
 } else {
-	LL searched_val = X[index];
+    LL searched_val = X[index];
 }
 
 LL index = upper_bound(ALL(X), E) - X.begin() - 1;   // E以下の最大値とその末尾の位置
@@ -158,38 +158,38 @@ if (index == -1) {
 
 ### 双方向動的配列`deque`
 
-|      操作      |                記法                 |
-| :------------: | :---------------------------------: |
-|      宣言      |         deque\<T> X(N, E);          |
-|   参照・代入   |              X[i] = x;              |
-| 先頭・末尾参照 |        X.front() ／ X.back()        |
+| 操作      | 記法                                 |
+|:-------:|:----------------------------------:|
+| 宣言      | deque\<T> X(N, E);                 |
+| 参照・代入   | X[i] = x;                          |
+| 先頭・末尾参照 | X.front() ／ X.back()               |
 | 先頭・末尾追加 | X.push_front(x); ／ X.push_back(x); |
-| 先頭・末尾削除 |   X.pop_front(); ／ X.pop_back();   |
+| 先頭・末尾削除 | X.pop_front(); ／ X.pop_back();     |
 
 ### 集合・連想配列
 
-|                            |                 集合                 |               連想配列               |
-| :------------------------: | :----------------------------------: | :----------------------------------: |
-|      宣言(二分探索木)      |              set\<T> X;              |         map<T_key, T_val> X;         |
-|         宣言(hash)         |         unordered_set\<T> X;         |    unordered_map<T_key, T_val> X;    |
-|            参照            |                                      |                 X[k]                 |
-|            追加            |             X.insert(x);             |              X[k] = v;               |
-|            削除            |             X.erase(x);              |             X.erase(k);              |
-| 最小値・最大値(二分探索木) |        *X.begin() ／ *X.end()        |                                      |
-|          存在判定          | if (X.count(x) != 0) { /* EXIST */ } | if (X.count(k) != 0) { /* EXIST */ } |
-|         iteration          |           EACH(x, X) { x }           |   EACH(x, X) { x.first, x.second }   |
+|                | 集合                                   | 連想配列                                 |
+|:--------------:|:------------------------------------:|:------------------------------------:|
+| 宣言(二分探索木)      | set\<T> X;                           | map<T_key, T_val> X;                 |
+| 宣言(hash)       | unordered_set\<T> X;                 | unordered_map<T_key, T_val> X;       |
+| 参照             |                                      | X[k]                                 |
+| 追加             | X.insert(x);                         | X[k] = v;                            |
+| 削除             | X.erase(x);                          | X.erase(k);                          |
+| 最小値・最大値(二分探索木) | *X.begin() ／ *X.end()                |                                      |
+| 存在判定           | if (X.count(x) != 0) { /* EXIST */ } | if (X.count(k) != 0) { /* EXIST */ } |
+| iteration      | EACH(x, X) { x }                     | EACH(x, X) { x.first, x.second }     |
 
 * `set<PII>`はOKだが`unordered_set<PII>`はNG
 
 ### スタック・キュー・ヒープ
 
-|           |                     スタック                      |                       キュー                        |                            ヒープ                            |
-| :-------: | :-----------------------------------------------: | :-------------------------------------------------: | :----------------------------------------------------------: |
-|   宣言    |                   stack\<T> X;                    |                    queue\<T> X;                     | 最大値) priority_queue\<T> X; <br>最小値) priority_queue<T, vector\<T>, greater\<T>> X; |
-|   追加    |                    X.push(x);                     |                     X.push(x);                      |                          X.push(x);                          |
-| 先頭削除  |                     X.pop();                      |                      X.pop();                       |                           X.pop();                           |
-| 先頭参照  |                      X.top()                      |                      X.front()                      |                           X.top()                            |
-| iteration | while (!X.empty()) { auto x = X.top(); X.pop(); } | while (!X.empty()) { auto x = X.front(); X.pop(); } |      while (!X.empty()) { auto x = X.top(); X.pop(); }       |
+|           | スタック                                              | キュー                                                 | ヒープ                                                                               |
+|:---------:|:-------------------------------------------------:|:---------------------------------------------------:|:---------------------------------------------------------------------------------:|
+| 宣言        | stack\<T> X;                                      | queue\<T> X;                                        | 最大値) priority_queue\<T> X; <br>最小値) priority_queue<T, vector\<T>, greater\<T>> X; |
+| 追加        | X.push(x);                                        | X.push(x);                                          | X.push(x);                                                                        |
+| 先頭削除      | X.pop();                                          | X.pop();                                            | X.pop();                                                                          |
+| 先頭参照      | X.top()                                           | X.front()                                           | X.top()                                                                           |
+| iteration | while (!X.empty()) { auto x = X.top(); X.pop(); } | while (!X.empty()) { auto x = X.front(); X.pop(); } | while (!X.empty()) { auto x = X.top(); X.pop(); }                                 |
 
 ### 素数・約数
 
@@ -197,7 +197,7 @@ if (index == -1) {
 
 ```c++
 inline LL lcm(LL a, LL b) {
-	return a * b / __gcd(a, b);
+    return a * b / __gcd(a, b);
 }
 ```
 
@@ -369,9 +369,9 @@ dfs(0, "");
 ```c++
 REP(i, 1 << N) {   // i moves from 0...0 to 1...1 as binary (|i|=N), which indicates choice/no-choice of each element
     REP(k, N) {   // for each element index
-		if (i & ((LL)1 << k)) {
-    	    // element k is selected in this choice
-    	}
+        if (i & ((LL)1 << k)) {
+            // element k is selected in this choice
+        }
     }
 }
 ```
@@ -539,7 +539,7 @@ REP(i, N) memo_rec(i, C, dp);
 ```
 
 * ナップサック問題($N$個のものから合計コスト$W$以下で価値和最大となるように選ぶ)
-  * 「$N$個のうち$A_i$個をそれぞれ$B_i$個にできる」場合は`weight`=$A_i$、`value`=$B_i-A_i$として`N += knapsack(I, N, weight, value)`で最大個数にできる($I$は$i$の数)
+   * 「$N$個のうち$A_i$個をそれぞれ$B_i$個にできる」場合は`weight`=$A_i$、`value`=$B_i-A_i$として`N += knapsack(I, N, weight, value)`で最大個数にできる($I$は$i$の数)
 
 ```c++
 LL knapsack(LL N, LL W, VI& weight, VI& value) {   // weight と value は 1-indexed
@@ -775,7 +775,7 @@ REP(k, N) REP(i, N) REP(j, N) if (c[i][j] > c[i][k] + c[k][j]) {
 
 - クラスカル法(最小全域木; 無効グラフ)
 
-```c++
+```cpp
 LL kruskal(LL N, vector<Edge>& edges) {   // N はノードの数(1-indexed なら N + 1 でよい)
     UnionFind uf(N);
     sort(ALL(edges), [] (auto& x, auto& y) {return x.weight < y.weight;});
@@ -794,4 +794,3 @@ vector<Edge> edges;
 edges.PB(Edge{x, y, w});
 LL min_weight_sum = kruskal(N + 1, edges);
 ```
-

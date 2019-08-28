@@ -6,11 +6,9 @@ order: 500
 
 Linux (CentOS) を想定しているが、たぶん UNIX 系ならほとんど変わらないはず(管理者権限の無い Mac というのも珍しいだろうが)。
 
-インストール先 (`/usr/local`に対応するもの) はここでは`$HOME/.local`としている。
+インストール先 (元の`/usr/local`に対応するもの) はここでは`$HOME/.local`としている。
 
 `make -j`で`Resource temporarily unavailable`エラーが出たら`make -j8`のように並列数を明示する。
-
-
 
 ## 0. Autotools
 
@@ -44,8 +42,6 @@ cd libtool-2.4.6
 make -j && make check && make install -j
 cd ..
 ```
-
-
 
 ## 1. GCC
 
@@ -130,8 +126,6 @@ export CPLUS_INCLUDE_PATH="$HOME/.local/include"
 source $HOME/.bash_profile
 ```
 
-
-
 ## 2. Python3
 
 [OpenSSL](https://www.openssl.org/source/) と [sqlite](https://www.sqlite.org/download.html) と [libffi](https://sourceware.org/libffi/) をインストールしておく必要がある。
@@ -184,8 +178,6 @@ cd $HOME/.local/bin
 ln -sf python3 python
 ```
 
-
-
 ## 3. Emacs
 
 [ImageMagick](https://imagemagick.org/script/install-source.php) が必要。liblcms2 とかも求められたら適宜入れる。
@@ -214,4 +206,3 @@ make -j8 && make check -j && make install -j
 
 alias emacs='emacs -nw'
 ```
-
