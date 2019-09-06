@@ -51,6 +51,10 @@ logzero.loglevel(logging.INFO)
 - `$ brew upgrade`: Homebrew 本体とパッケージのアップデート
 - `$ brew install PACKAGE`, `$ brew uninstall PACKAGE`, `$ brew list`
 
+## Gemfile
+
+* `$ bundle install`, `$ bundle update`: Gemfile 中の依存関係をインストール/アップデート
+
 ## Typora
 
 * width: 1400px

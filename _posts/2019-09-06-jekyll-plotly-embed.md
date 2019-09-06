@@ -51,7 +51,3 @@ plotly: true
 ### 埋め込み例
 
 {% include plotly/plot_example.html %}
-
-
-
-
