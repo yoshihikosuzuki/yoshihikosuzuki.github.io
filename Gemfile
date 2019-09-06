@@ -5,6 +5,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gem 'jekyll', '~> 3.6'
 gem "json"
 gem "hash-joiner"
+gem "nokogiri", ">= 1.10.4"
 
 group :jekyll_plugins do
   gem "jekyll-theme-leap-day"
