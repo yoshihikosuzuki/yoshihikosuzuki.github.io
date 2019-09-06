@@ -9,8 +9,6 @@ Mathjax の導入自体は特に難しくない。[公式サイト](https://www.
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 ```
 
-
-
 デフォルトだとインライン数式は`$$`で囲まないといけない。これを`$`に変更するには以下を追加。
 
 ```javascript
@@ -23,8 +21,6 @@ Mathjax の導入自体は特に難しくない。[公式サイト](https://www.
   });
 </script>
 ```
-
-
 
 また、Jekyll や Kramdown の文法との衝突でいくつか通常の LaTeX が表示されない。
 

@@ -59,7 +59,3 @@ logzero.loglevel(logging.INFO)
 
 * [yapf - A formatter for Python files](https://github.com/google/yapf)
 * [2to3](https://docs.python.org/ja/3/library/2to3.html)
-
-
-
-

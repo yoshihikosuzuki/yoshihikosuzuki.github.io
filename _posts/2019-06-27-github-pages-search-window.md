@@ -5,8 +5,6 @@ title: GitHub Pages で作ったサイトに Algolia で検索機能をつける
 
 基本的に[公式ページ](https://community.algolia.com/jekyll-algolia/getting-started.html)もしくは[この記事](https://aloerina01.github.io/blog/2018-10-11-1)がすごく分かりやすくて、ほとんどその通りにやれば大丈夫。ただ、GitHub Pages はデフォルトだと`$ git push`してから GitHub 側で Jekyll が実行されて静的サイトに変換されるが、Algolia の検索のためのインデックスを作るのにローカルで Jekyll を実行できないといけないので、そこだけ注意する。
 
-
-
 ## インデックスを作るために Jekyll をローカルで動かせるようにする
 
 [上の記事](https://aloerina01.github.io/blog/2018-10-11-1)にない部分だけ書くと、
@@ -30,8 +28,6 @@ end
 * `_site/`はビルド結果であり Git で管理する必要はないので、`.gitignore`に追加しておく
 
 これで`$ bundle exec jekyll *`が動くようになる。`$ bundle exec jekyll serve`とすれば、静的サイトがローカルに生成され、ローカルサーバー上でサイトを見ることができる。しかも一度起動しておけばファイルに変更を加えると動的にサイトが再生成されるので、毎回`$ git push`するよりも開発にとても便利。
-
-
 
 ## インデックスを作った後のフロントエンド実装
 
@@ -98,7 +94,7 @@ Algolia でインデックスを作った後は、今回は[公式ページ](htt
      searchResults.show();
    }
  });
- 
+
  // Adding searchbar and results widgets
  search.addWidget(
    instantsearch.widgets.searchBox({
@@ -123,7 +119,7 @@ Algolia でインデックスを作った後は、今回は[公式ページ](htt
      }
    })
  );
- 
+
  // Starting the search
  search.start();
 </script>
@@ -143,4 +139,3 @@ $(function() {
     if ($(this).text() == "Search Result:") return;
     ...
 ```
-
