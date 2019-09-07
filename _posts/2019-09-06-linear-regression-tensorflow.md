@@ -8,7 +8,7 @@ TensorFlow (version 1.4), TensorFlow Probability, Edwards2 の勉強のために
 
 [Jupyter Notebook はここ](https://nbviewer.jupyter.org/gist/yoshihikosuzuki/9d06ebb320789dd1a0c2389964a2d33e)。Plotly まわりのために [BITS](https://github.com/yoshihikosuzuki/BITS) という自作パッケージを使っているので、コードを動かす場合はインストールする。
 
-Tensorflow 関連のインポートは以下の通り。Eager Execution は使用しない。`edward2`で事足りたので`tfd = tfp.distributions`は使わなかった。一応どちらでも書けるらしい。
+Tensorflow 関連のインポートは以下の通り。Eager Execution は使用しない。今のところ`tfd = tfp.distributions`は使わずに済んでいる。
 
 ```python
 import tensorflow as tf
@@ -235,7 +235,7 @@ a0 = tf.constant(1., dtype=np.float32)
 b0 = 0.5
 ```
 
-まず、データを受け取って生成モデルの`ed.RandomVariable`オブジェクトを返す関数を定義する。`ed.Normal(...)`と`ed.RandomVariable(tfd.Normal(...))`の返り値は同じ (引数の書き方が違う)。`name`は後の計算で使うので付けておく。
+まず、データを受け取って生成モデルの`ed.RandomVariable`オブジェクトを返す関数を定義する。`ed.Normal(...)`は`ed.RandomVariable(tfd.Normal(...))`と同じ。`name`は後の計算で使うので付けておく。
 
 ```python
 def linear_regression_model(X):
