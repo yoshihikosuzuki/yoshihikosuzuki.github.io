@@ -5,7 +5,7 @@ order: 230
 ---
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/frontend.png" width=800px>
+  <img src="https://raw.githubusercontent.com/kamranahmedse/developer-roadmap/master/images/frontend.png" width="800px">
 </div>
 
 ([Roadmap to becoming a web developer in 2019](https://github.com/kamranahmedse/developer-roadmap) より引用)
@@ -21,12 +21,9 @@ order: 230
 ### npm (Node Package Manager)
 
 * 新規プロジェクト作成
-  
    * `$ npm init -y` (`-y`は非対話モード)
    * `package.json`が作られる
-
 * パッケージのインストール
-  
    * `node_modules/`にインストールしたモジュールや実行ファイルには自動でパスが通るので、後述の npm scripts や`require()`ではプレフィックスは不要
 
 | コマンド                              | インストール先           | `package.json`との関係                                                                                                                     | 用途                    |
@@ -37,14 +34,12 @@ order: 230
 | `$ npm install`                   | `./node_modules/` | 記述されている依存パッケージを全てインストール                                                                                                                | 既存レポジトリを clone した場合など |
 
 - 現在インストールされているバージョンと最新のバージョンを確認
-  
    - `$ npm outdated [-g|--save|--save-dev]`
    - アップデート自体はインストールと同じコマンドで可能
-* npm scripts
-  
-   * `package.json`中の`"scripts"`で定義されたコマンド群のこと
-   * `$ npm run`で一覧を表示できる
-   * 以下のような記述のとき、`タスク名` = `install`, `start`, `test`等なら`$ npm タスク名`で、その他(`build`等)は`$ npm run タスク名`で、`コマンド`を実行可能
+- npm scripts
+   - `package.json`中の`"scripts"`で定義されたコマンド群のこと
+   - `$ npm run`で一覧を表示できる
+   - 以下のような記述のとき、`タスク名` = `install`, `start`, `test`等なら`$ npm タスク名`で、その他(`build`等)は`$ npm run タスク名`で、`コマンド`を実行可能
 
 ```json
 "scripts": {
@@ -55,13 +50,9 @@ order: 230
 ### 標準モジュール
 
 * [Node.js 標準モジュール](http://yohshiy.blog.fc2.com/blog-entry-310.html)
-
 * JSON ファイル入力(JSON ファイル -> JSON 文字列 -> JS Object)
-  
    * `const data = JSON.parse(fs.readFileSync(fileName, 'utf8'))`
-
 * JSON ファイル出力(JS Object -> JSON 文字列 -> JSON ファイル)
-  
    * `fs.writeFile(fileName, JSON.stringify(data))`
 
 ## CSS, Sass, JS (design)
@@ -76,15 +67,10 @@ order: 230
 ### Hello, World
 
 1. `$ npm init -y`で新規プロジェクトを作成
-
 2. [公式 Quick Start](https://electronjs.org/docs/tutorial/quick-start) に従って`main.js`と`index.html`をコピペ
-   
     - `package.json`中の`"main"`は上の`main.js`に変更しておく
-
 3. `$ electron .`で実行
-   
     - npm script で`"start": "electron ."`としておけば、`$ npm start`でも OK
-
 4. アプリケーション実行ファイルの生成には [electron-packager](https://github.com/electron/electron-packager) を使う(`$ npm install -g electron-packager`)
 
 ### Visual Studio Code で開発・デバッグできるようにする
@@ -109,10 +95,10 @@ order: 230
       - `event.returnValue`に代入すれば同期的に返信(送信側の返り値になる)
       - `event.sender.Send(<channel>[, <args>])`で非同期的に返信(再度`on`で受信)
 
-| Sender -> Receiver (非同期通信) | Method in Sender                                      | Method in Receiver                    |
-| -------------------------- | ----------------------------------------------------- | ------------------------------------- |
-| Main -> Renderer           | <BrowserWindow>.webContents.send(<channel>[, <args>]) | ipcRenderer.on(<chennel>, <listener>) |
-| Renderer -> Main           | ipcRenderer.send(<channel>[, <args>])                 | ipcMain.on(<channel>, <listener>)     |
+| Sender -> Receiver (非同期通信) | Method in Sender                                        | Method in Receiver                      |
+| -------------------------- | ------------------------------------------------------- | --------------------------------------- |
+| Main -> Renderer           | `<BrowserWindow>.webContents.send(<channel>[, <args>])` | `ipcRenderer.on(<chennel>, <listener>)` |
+| Renderer -> Main           | `ipcRenderer.send(<channel>[, <args>])`                 | `ipcMain.on(<channel>, <listener>)`     |
 
 ### 設定ファイル
 
@@ -147,4 +133,4 @@ order: 230
 - `$ npm --save install react react-dom redux react-redux`
 - [React+Redux入門](https://qiita.com/erukiti/items/e16aa13ad81d5938374e)
 - [Example: Todo List](https://redux.js.org/basics/example)
-- Redux で非同期処理がしたい場合は Redux Middleware を使う(cf. https://numb86-tech.hatenablog.com/entry/2018/04/17/203802)
+- Redux で非同期処理がしたい場合は Redux Middleware を使う

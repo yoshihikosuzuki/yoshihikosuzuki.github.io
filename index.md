@@ -5,7 +5,7 @@ title: Home
 
 ## 最近の投稿
 
-{% for post in site.posts limit:5 %}
+{% for post in site.posts limit:10 %}
 ### [{{ post.title }}]({{ post.url }})
 
 {{ post.date | date_to_string }}

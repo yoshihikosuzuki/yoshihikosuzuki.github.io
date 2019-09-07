@@ -6,7 +6,7 @@ order: 200
 
 ### 型・マクロ
 
-```c++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 using LL = long long; using PII = pair<LL, LL>; using VI = vector<LL>; using VVI = vector<VI>;
@@ -36,13 +36,13 @@ using VB = vector<bool>; using VS = vector<string>; using VP = vector<PII>;
 * X以上の最小のNの倍数
    * 何倍か知りたいだけの場合は最初の`n *`を消す
 
-```c++
+```cpp
 inline LL minMult(LL x, LL n) { return n * (x / n + (x % n == 0 ? 0 : 1)); }
 ```
 
 * 10進数を最上位桁から順に見る
 
-```c++
+```cpp
 LL N;   // 対象の数値 >0
 VI digits;
 LL M = N;
@@ -78,7 +78,7 @@ REVERSE(digits);   // 最下位桁からなら不要
 
 * 全マッチ位置列挙
 
-```c++
+```cpp
 VI findAll(string S, string pattern) {
     VI P;
     LL pos = (LL)S.find(pattern);
@@ -103,7 +103,7 @@ auto P = findAll("abcdeacac", "a");   // P = {0, 5, 7}
 
 * `vector<pair>`のソート
 
-```c++
+```cpp
 #define FSORT(c)     stable_sort(ALL(c), [] (auto& x, auto& y) {return x.first < y.first;});
 #define FRSORT(c)    stable_sort(ALL(c), [] (auto& x, auto& y) {return x.first > y.first;});
 #define SSORT(c)     stable_sort(ALL(c), [] (auto& x, auto& y) {return x.second < y.second;});
@@ -116,7 +116,7 @@ vector<pair<T1, T2>> X;
 
 * ソート前のインデックス
 
-```c++
+```cpp
 struct Tuple {
     LL index;   // ソート前のインデックス
     LL a, b;   // ソートしたい中身
@@ -136,7 +136,7 @@ REP(i, N) {
 
 * 二分探索(直近の値)
 
-```c++
+```cpp
 SORT(X);
 
 LL index = lower_bound(ALL(X), E) - X.begin();   // E以上の最小値とその先頭の位置
@@ -195,7 +195,7 @@ if (index == -1) {
 
 - 最大公約数 GCD・最小公倍数 LCM
 
-```c++
+```cpp
 inline LL lcm(LL a, LL b) {
     return a * b / __gcd(a, b);
 }
@@ -203,7 +203,7 @@ inline LL lcm(LL a, LL b) {
 
 - 素数判定
 
-```c++
+```cpp
 bool isPrime(LL n){
     if (n < 2) return false;
     FOR(i, 2, (LL)(sqrt(n) + 1)) {
@@ -215,7 +215,7 @@ bool isPrime(LL n){
 
 - ある数以下の全素数を列挙
 
-```c++
+```cpp
 inline void eratosthenes(VB& primes) {
     REP(i, SZ(primes)) primes[i] = true;
     primes[0] = primes[1] = false;
@@ -240,7 +240,7 @@ REP(i, N + 1) {
 
 - 約数列挙
 
-```c++
+```cpp
 set<LL> listDivisors(LL n) {   // set版
     set<LL> divs;
     FOR(i, 1, (LL)(sqrt(n) + 1)) {   // {1, n} を除く場合は2番目の引数を 2 にする
@@ -270,7 +270,7 @@ EACH(div, divs) { /* div は約数 */ }
 
 - 素因数分解(これらの素因数の、階乗数を制約条件とした組み合わせによって全ての約数が決まる)
 
-```c++
+```cpp
 map<LL, LL> factorize(LL n) {
     map<LL, LL> prime_factors;
     LL m = n;
@@ -293,7 +293,7 @@ for (auto pf : pfs) { /* pf.first が素因数、pf.second が階乗数 */ }
 
 ### モジュロ演算・組み合わせ
 
-```c++
+```cpp
 const LL MOD = 1e9 + 7;
 inline LL mod_add(LL a, LL b) { return (a + b) % MOD; }
 inline LL mod_sub(LL a, LL b) { return (a + MOD - b) % MOD; }
@@ -315,7 +315,7 @@ LL mod_div(LL a, LL b) { return mod_mul(a, mod_inv(b)); }   // a/b = a*b^{-1}
 
 - $_nC_r=\frac{n!}{r!(n-r)!}=n!\times (r!)^{-1}\times ((n-r)!)^{-1}$ は、$k!$ および $(k!)^{-1}\ (k=0,\cdots,n)$ を計算しておく(N ~ $10^5$くらいまで)
 
-```c++
+```cpp
 class Combination {
     VI facts, inv_facts;
 public:
@@ -336,7 +336,7 @@ LL ncr = c.nCr(n, r);
 
 * 順列列挙
 
-```c++
+```cpp
 VI X{1, 2, ..., N};   // これらを並び替える
 do {   // この中で X は並び替えられており、普通の配列のように使うことができる
 } while (next_permutation(ALL(X)));
@@ -345,7 +345,7 @@ do {   // この中で X は並び替えられており、普通の配列のよ�
 
 - 重複順列列挙(N個の要素から重複を無制限に許して長さMの順列を全て生成; $O(N^M)$)
 
-```c++
+```cpp
 char elements[] = {'1', '2', '3'};   // これらから抽出
 int N = 3;
 int size = M;
@@ -366,7 +366,7 @@ dfs(0, "");
 
 - 組み合わせ列挙(N個の要素からの全抽出方法)
 
-```c++
+```cpp
 REP(i, 1 << N) {   // i moves from 0...0 to 1...1 as binary (|i|=N), which indicates choice/no-choice of each element
     REP(k, N) {   // for each element index
         if (i & ((LL)1 << k)) {
@@ -376,9 +376,9 @@ REP(i, 1 << N) {   // i moves from 0...0 to 1...1 as binary (|i|=N), which indic
 }
 ```
 
-* 重複組み合わせ列挙 $$_nH_r=_{n+r-1}C_{r}$$
+* 重複組み合わせ列挙 $_nH_r=_{n+r-1}C_{r}$
 
-```c++
+```cpp
 char elements[] = {'1', '2', '3'};   // これらから抽出
 int N = 3;
 int size = M;   // 何個選ぶか
@@ -404,7 +404,7 @@ dfs(0, 0, "");
 
 - 連続部分列の要素の総和 $S[l,r]=S[1,r]-S[1,l-1]$
 
-```c++
+```cpp
 VI X;
 // Xが0-indexedなら
 VI S(SZ(X) + 1);
@@ -418,13 +418,13 @@ auto sum_of_l_to_r = S[r] - S[l - 1];
 
 - 二次元累積和
 
-```c++
+```cpp
 
 ```
 
 - しゃくとり法(条件を満たす連続部分列の列挙)   TODO: 一般化
 
-```c++
+```cpp
 VI X(N);
 LL right = 0;
 //LL sum = 0;   // 部分列の和を扱う場合
@@ -448,7 +448,7 @@ REP(left, N) {
 
 - Union-Find (同値関係の追加と検索; 無向グラフの連結成分)
 
-```c++
+```cpp
 class UnionFind {
 public:
     VI parent;
@@ -487,7 +487,7 @@ REP(i, N) {   // 1-indexの場合は FOR(i, 1, N + 1) にする
 
 - 区間の集合と(多数の)座標が与えられた時の区間所属判定
 
-```c++
+```cpp
 vector<pair<LL, pair<bool, LL>>> events;   // 座標、区間開始(true)・終了(false)フラグ、値(区間のラベルなど)
 REP(i, N) {
   LL s, t, x;
@@ -525,7 +525,7 @@ while (q_index < SZ(D)) {
 
 - メモ化再帰
 
-```c++
+```cpp
 LL memo_rec(LL i, T& C, VI& dp) {
     if (dp[i] != 初期値) return dp[i];
     LL val = ;
@@ -541,7 +541,7 @@ REP(i, N) memo_rec(i, C, dp);
 * ナップサック問題($N$個のものから合計コスト$W$以下で価値和最大となるように選ぶ)
    * 「$N$個のうち$A_i$個をそれぞれ$B_i$個にできる」場合は`weight`=$A_i$、`value`=$B_i-A_i$として`N += knapsack(I, N, weight, value)`で最大個数にできる($I$は$i$の数)
 
-```c++
+```cpp
 LL knapsack(LL N, LL W, VI& weight, VI& value) {   // weight と value は 1-indexed
     VVI dp(N + 1, VI(W + 1));   // dp[i][j] = i番目の要素までを使い、合計容量j以下での価値の和の最大値
     FOR(i, 1, N + 1) {
@@ -559,7 +559,7 @@ LL knapsack(LL N, LL W, VI& weight, VI& value) {   // weight と value は 1-ind
 
 * 二次元平面の探索(DFS; 上下移動)
 
-```c++
+```cpp
 VP moves{MP(-1, 0), MP(1, 0), MP(0, -1), MP(0, 1)};
 
 void dfs(LL i, LL j, LL& H, LL& W, VV(T)& X, VV(bool)& visited) {
@@ -586,7 +586,7 @@ REP(i, H) {
 
 * 二次元平面の探索(BFS; 上下移動)
 
-```c++
+```cpp
 struct Point { LL x, y, d; };   // d はマンハッタン距離
 vector<Point> moves{Point{-1, 0, 0}, Point{1, 0, 0}, Point{0, -1, 0}, Point{0, 1, 0}};   // 第3引数はダミー
 
@@ -610,7 +610,7 @@ while (!q.empty()) {
 - 二次元平面の探索(BFS; 任意の移動)
 - グラフ(全て1-indexed)
 
-```c++
+```cpp
 /* エッジに注目しない場合は隣接リスト */
 LL N;   // ノード数
 VVI G(N + 1);
@@ -638,7 +638,7 @@ sort(ALL(edges), [] (auto& x, auto& y) {return x.weight < y.weight;});
 
 * グラフのDFS
 
-```c++
+```cpp
 void dfs(LL v, VVI& G, VB& visited) {   // 返り値などは適宜変える
     if (visited[v]) return;   // すでに訪問済み
     visited[v] = true;
@@ -656,7 +656,7 @@ FOR(v, 1, N + 1) {
 
 - トポロジカルソート(DFS)
 
-```c++
+```cpp
 void dfs(LL v, VVI& G, VB& visited, VI& sorted) {   // 返り値などは適宜変える
     if (visited[v]) return;   // すでに訪問済み
     visited[v] = true;
@@ -677,7 +677,7 @@ REVERSE(sorted);
 
 - 二部グラフの最大マッチング(DFS) [要確認]
 
-```c++
+```cpp
 bool dfs(LL v, VVI& G, VB& visited, VI& matched) {
     if (visited[v]) return false;
     visited[v] = true;
@@ -702,7 +702,7 @@ REP(i, N) {
 
 * グラフのBFS
 
-```c++
+```cpp
 void bfs(LL s, VVI& G) {   // 返り値などは適宜変える
     VB visited(SZ(G));
     queue<LL> q;
@@ -726,7 +726,7 @@ FOR(v, 1, N + 1) {
 
 - ダイクストラ法(1頂点から各頂点への最小コスト; BFS)
 
-```c++
+```cpp
 VI dijkstra(LL s, vector<vector<Edge>>& G) {
     VI cost(SZ(G), LLONG_MAX);
     cost[s] = 0;
@@ -758,13 +758,13 @@ LL min_cost_v_to_w = cost[w];
 
 * A*アルゴリズム(優先度付き BFS、常に heuristic distance $\leq$ true distance なら最適解が求まる) https://www.redblobgames.com/pathfinding/a-star/introduction.html
 
-```c++
+```cpp
 
 ```
 
 * ワーシャルフロイド法(各頂点から各頂点への最小コストと最短経路)
 
-```c++
+```cpp
 VVI c(N, VI(N));   // c[i][j] = エッジ i->j のコスト
 VVI next(N, VI(N, -1));   // 経路用; next[i][j] = ノードiからjへ向かう最短経路のiの次のノード
 REP(k, N) REP(i, N) REP(j, N) if (c[i][j] > c[i][k] + c[k][j]) {
