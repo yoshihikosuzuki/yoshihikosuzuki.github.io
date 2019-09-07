@@ -20,13 +20,13 @@ tf.enable_eager_execution()
 
 ## モデル
 
-$\mathbb{R}^2$ 上のガウス分布 $K$ 個の混合分布から $N$ 個のデータ $x_1,\cdots,x_N$ を観測したとする。データ $x_i$ が属する分布を $z_i\in[1..K]$ で表すと、混合ガウス分布は
+$\mathbb{R}^2$ 上のガウス分布 $K$ 個の混合分布から $N$ 個のデータ $x_1,\cdots,x_N$ を観測したとする。データ $x_i$ が属する分布を $z_i\in[1..K]$ で表し、$x_i$ は混合ガウス分布
 
 $$
 x_i\sim{\rm Normal}_2(\mu_{z_i},\sigma^2_{z_i}I)
 $$
 
-と書ける。ただし、$\mu_\cdot\in\mathbb{R}^2,\sigma^2_\cdot\in\mathbb{R}$ で $I$ は2次元単位行列。
+に従うとする。ただし、$\mu_\cdot\in\mathbb{R}^2,\sigma^2_\cdot\in\mathbb{R}$ で $I$ は2次元単位行列。ここでは分布ごとに分散は異なるが、同じ分布の各次元では分散は同じとしている。
 
 ## データ生成
 
@@ -153,7 +153,7 @@ n_leapfrog_steps = 1
 hmc_kernel = tfp.mcmc.HamiltonianMonteCarlo(unnormalized_posterior, step_size, n_leapfrog_steps)
 ```
 
-そして、パラメタの初期値を決めて MCMC を回す。。。のだが、各ガウス分布の平均 $\mu$ の初期値をすべて0で与えるとかなりの確率で`log_joint`の`sum_log_prob`が途中で NaN になってしまうため、真の $\mu$ を与えることにした。そうするとちゃんと動く。ちなみに[公式サンプル](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Bayesian_Gaussian_Mixture_Model.ipynb)でも真の平均を初期値にしている (いいのか？)。
+そして、パラメタの初期値を決めて MCMC を回す。。。のだが、分布の重なりが大きいためか、各ガウス分布の平均 $\mu$ の初期値をすべて0で与えるとかなりの確率で`log_joint`の`sum_log_prob`が途中で NaN になってしまうため、真の $\mu$ を与えることにした。そうするとちゃんと動く。ちなみに[公式サンプル](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Bayesian_Gaussian_Mixture_Model.ipynb)でも真の平均を初期値にしている (いいのか？)。
 
 ```python
 n_burnin = 1000
