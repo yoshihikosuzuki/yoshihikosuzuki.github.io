@@ -140,7 +140,7 @@ def log_joint(pi, mu, var, x):
                                             rv_var.log_prob(var)], axis=-1))
     assert not np.isnan(sum_log_prob), f"Nan, pi={pi}, mu={mu}"
     return sum_log_prob
-    
+
 def unnormalized_posterior(pi, mu, var):
     return log_joint(pi=pi, mu=mu, var=var, x=x_observed)
 ```

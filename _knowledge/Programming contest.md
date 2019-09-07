@@ -313,7 +313,7 @@ LL mod_inv(LL x) { return mod_bipow(x, MOD - 2); }   // x^{-1} = x^{MOD-2} (MOD:
 LL mod_div(LL a, LL b) { return mod_mul(a, mod_inv(b)); }   // a/b = a*b^{-1}
 ```
 
-- $_nC_r=\frac{n!}{r!(n-r)!}=n!\times (r!)^{-1}\times ((n-r)!)^{-1}$ は、$k!$ および $(k!)^{-1}\ (k=0,\cdots,n)$ を計算しておく(N ~ $10^5$くらいまで)
+- $_nC_r=\frac{n!}{r!(n-r)!}=n!\times (r!)^{-1}\times ((n-r)!)^{-1}$ は、$k!$ および $(k!)^{-1}\ (k=0,\cdots,n)$ を計算しておく ($n\leq\sim 10^5$)
 
 ```cpp
 class Combination {
@@ -756,11 +756,7 @@ dijkstra(v, G, cost);
 LL min_cost_v_to_w = cost[w];
 ```
 
-* A*アルゴリズム(優先度付き BFS、常に heuristic distance $\leq$ true distance なら最適解が求まる) https://www.redblobgames.com/pathfinding/a-star/introduction.html
-
-```cpp
-
-```
+* A*アルゴリズム(優先度付き BFS、常に heuristic distance $\leq$ true distance なら最適解が求まる) [別記事](https://yoshihikosuzuki.github.io/2019/07/14/space-search.html)
 
 * ワーシャルフロイド法(各頂点から各頂点への最小コストと最短経路)
 
