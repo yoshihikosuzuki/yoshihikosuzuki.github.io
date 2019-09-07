@@ -1,23 +1,22 @@
 ---
 layout: post
-title: Tensorflow (Probability) で線形回帰と混合ガウスモデル
+title: Tensorflow (Probability) で線形回帰
 plotly: true
 ---
 
-TensorFlow, TensorFlow Probability, Edwards2 の勉強のために、最尤推定とベイズ推定の各種解法で、潜在変数なしとありの場合でそれぞれ代表的な線形回帰と混合ガウスモデルを解く。
+TensorFlow (version 1.4), TensorFlow Probability, Edwards2 の勉強のために、最尤推定とベイズ推定の各種解法で、潜在変数なしの場合に代表的な線形回帰を解く。潜在変数ありの[混合ガウス分布はこちら]({% post_url 2019-09-07-gaussian-mixture-model-tensorflow %})。
 
 [Jupyter Notebook はここ](https://nbviewer.jupyter.org/gist/yoshihikosuzuki/9d06ebb320789dd1a0c2389964a2d33e)。Plotly まわりのために [BITS](https://github.com/yoshihikosuzuki/BITS) という自作パッケージを使っているので、コードを動かす場合はインストールする。
 
-Tensorflow 関連のインポートは以下の通り。Eager Execution は使用しない。
+Tensorflow 関連のインポートは以下の通り。Eager Execution は使用しない。`edward2`で事足りたので`tfd = tfp.distributions`は使わなかった。一応どちらでも書けるらしい。
 
 ```python
 import tensorflow as tf
 import tensorflow_probability as tfp
-tfd = tfp.distributions
 from tensorflow_probability import edward2 as ed
 ```
 
-## 1. 線形回帰
+## モデル
 
 $D$ 次元データを $N$ 個観測したときに以下のモデルを考える。
 
@@ -129,7 +128,7 @@ $$
 
 ### ギブスサンプリング
 
-Tensorflow Probability にはギブスサンプリングを楽に行う方法は無いよう (cf. [GitHub Issues](https://github.com/tensorflow/probability/issues/369)) なので、Tensorflow は使わずに書くことにした。
+Tensorflow Probability にはギブスサンプリングを楽に行う方法は無いよう (cf. [GitHub Issues](https://github.com/tensorflow/probability/issues/369); Edward2 の前身の Edward には`ed.Gibbs`というのがあったらしい) なので、Tensorflow は使わずに書いた。
 
 ギブスサンプリングを行うには、各パラメタの完全条件付き分布 $p(\beta\vert\sigma^2,y),p(\sigma^2\vert\beta,y)$ が必要になる。これらは自分で求めておく必要があって、それぞれ
 
@@ -310,15 +309,3 @@ TODO
 {% include plotly/linear_regression_beta_estimates.html %}
 
 {% include plotly/linear_regression_y_estimates.html %}
-
-## 2. 混合ガウスモデル
-
-### データ
-
-### 最尤推定 (EMアルゴリズム)
-
-### ベイズ推定 (ギブスサンプリング)
-
-### ベイズ推定 (ハミルトニアンモンテカルロ法)
-
-### ベイズ推定 (変分推論)
