@@ -1,7 +1,7 @@
 ---
 layout: knowledge
 title: 管理者権限が無い場所での環境構築
-order: 500
+order: 800
 ---
 
 Linux (CentOS) を想定しているが、たぶん UNIX 系ならほとんど変わらないはず(管理者権限の無い Mac というのも珍しいだろうが)。

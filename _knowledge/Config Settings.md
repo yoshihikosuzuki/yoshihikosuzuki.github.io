@@ -1,7 +1,7 @@
 ---
 layout: knowledge
 title: 各種コンフィグ設定
-order: 550
+order: 750
 ---
 
 ## Emacs
