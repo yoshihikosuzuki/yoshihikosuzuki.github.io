@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="#">
 
     {% seo %}
 
@@ -34,15 +35,7 @@
       <nav>
         <ul></ul>
       </nav>
-      
-      <section>
-        <div id="search-result" style="display:none">
-          <h2>Search Result:</h2>
-          <div id="search-hits"></div>
-        </div>
-        {{ content }}
-      </section>
-      
+
       <footer>
         <p>
           <small>
@@ -52,12 +45,21 @@
           </small>
         </p>
       </footer>
+      
+      <section>
+        <div id="search-result" style="display:none">
+          <h2>Search Result:</h2>
+          <div id="search-hits"></div>
+        </div>
+        {{ content }}
+      </section>
     </div>
+
     
-    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous" async></script>
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}" async></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js" async></script>
-    <script async>hljs.initHighlightingOnLoad();</script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
     <script type="text/x-mathjax-config" async>
      MathJax.Hub.Config({
