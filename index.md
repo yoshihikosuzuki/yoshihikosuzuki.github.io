@@ -3,9 +3,9 @@ layout: default
 title: Home
 ---
 
-## 最近の投稿
+## 最近のブログ投稿
 
-{% for post in site.posts limit:10 %}
+{% for post in site.posts limit:5 %}
 ### [{{ post.title }}]({{ post.url }})
 
 {{ post.date | date_to_string }}
@@ -13,14 +13,21 @@ title: Home
 {{ post.excerpt }}
 
 {% endfor %}
--> [すべての投稿を見る]({% link blog/index.html %})
+
+<br>
+
+&#8811; [すべてのブログ投稿を見る]({% link blog/index.html %})
+
+<br>
 
 
-## 代表記事
+## 固定記事
 
 {% assign knowledges = site.knowledge | sort:"order" %}
 {% for post in knowledges limit:5 %}
 ### [{{ post.title }}]({{ post.url }})
 {% endfor %}
 
--> [すべての記事を見る]({% link knowledge.md %})
+<br>
+
+&#8811; [すべての固定記事を見る]({% link knowledge.md %})
