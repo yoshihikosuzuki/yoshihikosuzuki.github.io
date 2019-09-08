@@ -8,13 +8,14 @@ TensorFlow (version 1.4), TensorFlow Probability, Edwards2 の勉強のために
 
 [Jupyter Notebook はここ](https://nbviewer.jupyter.org/gist/yoshihikosuzuki/9d06ebb320789dd1a0c2389964a2d33e)。Plotly まわりのために [BITS](https://github.com/yoshihikosuzuki/BITS) という自作パッケージを使っているので、コードを動かす場合はインストールする。
 
-Tensorflow 関連のインポートは以下の通り。今回は Eager Execution を使用する。また、`ed.RandomVariable`ではなく`tfd.*`をいじる必要が出てくるのでそれもインポートとしている。
+Tensorflow 関連のインポートは以下の通り。今回は Eager Execution を使用する。
 
 ```python
 import tensorflow as tf
 import tensorflow_probability as tfp
-tfd = tfp.distributions
 from tensorflow_probability import edward2 as ed
+tfd = tfp.distributions
+tfb = tfp.bijectors
 tf.enable_eager_execution()
 ```
 
@@ -110,7 +111,7 @@ TODO
 
 ### ハミルトニアンモンテカルロ法
 
-ハイパーパラメタは以下のようにした。
+ハイパーパラメタは以下のようにした。データ生成の際のパラメタとあまりかけ離れた設定にならないようにする。
 
 ```python
 alpha0 = np.ones(K, dtype=dtype) / K
@@ -124,7 +125,7 @@ b0 = 0.5
 
 ```python
 rv_pi = tfd.Dirichlet(alpha0, name="pi")
-rv_mu = tfd.Independent(tfd.Normal(mu0, s0), reinterpreted_batch_ndims=1, name="mu")
+rv_mu = tfd.Independent(tfd.Normal(mu0, s0), name="mu")
 rv_var = tfd.InverseGamma(a0, b0, name="var")
 
 def tf_repeat(a, multiples, axis):
@@ -145,21 +146,25 @@ def unnormalized_posterior(pi, mu, var):
     return log_joint(pi=pi, mu=mu, var=var, x=x_observed)
 ```
 
-あとは推移核を作る。`step_size`と`n_leapfrog_steps`の値は何度か手で調整した後のもの。
+あとは推移核を作る。ハミルトニアンモンテカルロ法ではパラメタに対する制約をサンプリング中に取り入れることはできないため、$\sum_k\pi_k=1$ は MCMC 中成り立たない。そこで、`tfb.SoftmaxCentered`を使って一旦 $\pi$ を制約無しの空間上の変数に変換し、MCMC が終わった後に元の制約のある変数へと引き戻す (これは自動でやってくれる)。Bijector を使う場合は`tfp.mcmc.HamiltonianMonteCarlo`を`tfp.mcmc.TransformedTransitionKernel`でラップする必要がある。
+
+`step_size`と`n_leapfrog_steps`の値は下の MCMC を何度か試しに回して受容率がおかしくならないように手で調整した後のもの。
 
 ```python
-step_size = 0.003
-n_leapfrog_steps = 1
-hmc_kernel = tfp.mcmc.HamiltonianMonteCarlo(unnormalized_posterior, step_size, n_leapfrog_steps)
+step_size = 0.002
+n_leapfrog_steps = 5
+hmc_kernel = tfp.mcmc.TransformedTransitionKernel(
+    inner_kernel=tfp.mcmc.HamiltonianMonteCarlo(unnormalized_posterior, step_size, n_leapfrog_steps),
+    bijector=[tfb.SoftmaxCentered(), tfb.Identity(), tfb.Identity()])
 ```
 
-そして、パラメタの初期値を決めて MCMC を回す。。。のだが、分布の重なりが大きいためか、各ガウス分布の平均 $\mu$ の初期値をすべて0で与えるとかなりの確率で`log_joint`の`sum_log_prob`が途中で NaN になってしまうため、真の $\mu$ を与えることにした。そうするとちゃんと動く。ちなみに[公式サンプル](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Bayesian_Gaussian_Mixture_Model.ipynb)でも真の平均を初期値にしている (いいのか？)。
+そして、パラメタの初期値を決めて MCMC を回す。今回は各ガウス分布の平均 $\mu$ の初期値をすべて0で与えたのだが、生成したデータの分布同士の重なりが大きいためか、適当な`step_size`と`n_leapfrog_steps`ではかなりの確率で $\pi$ のうち1つが途中で0になり`log_joint`が NaN になってしまったり、受容率が0になってしまったりした。ちなみに[公式 Jupyter Notebook](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Bayesian_Gaussian_Mixture_Model.ipynb) では真の平均を初期値にしている (いいのか？)。そのようにした場合は、収束が早くなるためか比較的適当なステップサイズ等で大丈夫だった。
 
 ```python
 n_burnin = 1000
 n_iters = 3000
 pi_init = np.ones(K, dtype=dtype) / K
-mu_init = mu_true#np.zeros([K, D], dtype=dtype)
+mu_init = np.zeros([K, D], dtype=dtype)
 var_init = np.full(K, 0.05, dtype=dtype)
 
 (pi_samples, mu_samples, var_samples), kernel_results = tfp.mcmc.sample_chain(n_iters,
@@ -168,9 +173,9 @@ var_init = np.full(K, 0.05, dtype=dtype)
                                                                               kernel=hmc_kernel)
 ```
 
-ちなみにこのときの状態遷移の受容率 (=`np.mean(kernel_results.is_accepted)`) は約75%だった。
+状態遷移の受容率は`np.mean(kernel_results.inner_results.is_accepted)`で分かる。今回は約92%だった。
 
-非正規化事後分布とパラメタの遷移をプロットしてみると、$\mu,\sigma^2$ は良さそうなのだが、$\pi$ の値の和が1を超えていて明らかにおかしい。`tfd.Dirichlet`の使い方がおかしいのか、それとも数値最適化には $\pi$ の正規化などの制約は含まれていない (はず) ので、その途中で数値誤差が溜まってしまっているのだろうか。分からない。
+非正規化事後分布とパラメタ遷移のプロットは以下のようになった。$\mu,\sigma^2$ ともにちゃんと収束している。
 
 {% include plotly/gaussian_mixture_hmc_pi_posterior.html %}
 
@@ -191,3 +196,8 @@ var_init = np.full(K, 0.05, dtype=dtype)
 ### 変分推論
 
 TODO
+
+## 参考文献
+
+* [Bayesian Gaussian Mixture Model and Hamiltonian MCMC](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Bayesian_Gaussian_Mixture_Model.ipynb)
+* [ノンパラメトリックベイズ 点過程と統計的機械学習の数理 (機械学習プロフェッショナルシリーズ)](https://www.amazon.co.jp/dp/4061529153)

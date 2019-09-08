@@ -8,7 +8,7 @@ TensorFlow (version 1.4), TensorFlow Probability, Edwards2 の勉強のために
 
 [Jupyter Notebook はここ](https://nbviewer.jupyter.org/gist/yoshihikosuzuki/9d06ebb320789dd1a0c2389964a2d33e)。Plotly まわりのために [BITS](https://github.com/yoshihikosuzuki/BITS) という自作パッケージを使っているので、コードを動かす場合はインストールする。
 
-Tensorflow 関連のインポートは以下の通り。Eager Execution は使用しない。今のところ`tfd = tfp.distributions`は使わずに済んでいる。
+Tensorflow 関連のインポートは以下の通り。Eager Execution は使用しない。
 
 ```python
 import tensorflow as tf
@@ -309,3 +309,11 @@ TODO
 {% include plotly/linear_regression_beta_estimates.html %}
 
 {% include plotly/linear_regression_y_estimates.html %}
+
+## 参考文献
+
+* [TensorFlow入門 線形回帰と非線形回帰の問題を解いてみた](https://qiita.com/MahoTakara/items/0d7284774c2adf1f05ec)
+* [pythonでギブス・サンプリングによるベイズ線形回帰を実装してみた](https://qiita.com/pynomi/items/75ac937fc4ed0b39e3d5)
+* [【確率的プログラミング】Edward2, Pyro, PyStanのベイズ線形回帰コードメモ](https://www.hellocybernetics.tech/entry/2018/11/22/231124)
+* [Bayesian Regressions with MCMC or Variational Bayes using TensorFlow Probability](https://brendanhasz.github.io/2018/12/03/tfp-regression)
+* [ベイズ計算統計学 (統計解析スタンダード)](https://www.amazon.co.jp/dp/4254128568)
