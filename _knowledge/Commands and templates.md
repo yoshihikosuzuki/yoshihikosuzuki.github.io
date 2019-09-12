@@ -18,7 +18,7 @@ order: 100
 
 * 以下のテンプレートを拡張機能の [Snippets Menu](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/snippets_menu/readme.html) で登録
    * `display`は例えばセルの途中で(ループの中でとか) pandas.DataFrame を表形式で表示したい時とかに使う
-   * [Plotly](https://plot.ly/python/) はバージョン4を想定
+   * [Plotly](https://plot.ly/python/) はバージョン4を想定 ([cufflinks](https://github.com/santosjorge/cufflinks) を使えば `pd.DataFrame.iplot()` のようにできる)
    * ログ表示には [logzero](https://logzero.readthedocs.io/en/latest/) を使用、`loglevel`は状況に応じて`DEBUG`に変える
 
 ```python

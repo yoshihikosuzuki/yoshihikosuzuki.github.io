@@ -53,7 +53,7 @@ e = np.random.normal(0, np.sqrt(variance), [N, 1]).astype(dtype)
 y_observed = np.matmul(X, beta_true) + e
 ```
 
-各次元での $x_{i\cdot}$ と $y_i$ の関係は下のプロットのようになった (interactive plot なので、右の legend をクリックすると各次元のプロットが消えたり現れたりする)。 $\beta$ が大きい次元ほどデータの相関の傾向が強い。
+各次元での $x_{i\cdot}$ と $y_i$ の関係は下のプロットのようになった (右にある各 legend をシングルクリックでその legend のプロットを消す/表示する、ダブルクリックでそれ以外の legend のプロットを消す/表示する)。 $\beta$ が大きい次元ほどデータの相関の傾向が強い。
 
 {% include plotly/linear_regression_data.html %}
 
