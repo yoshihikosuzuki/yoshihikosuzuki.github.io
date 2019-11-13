@@ -55,10 +55,6 @@ logzero.loglevel(logging.INFO)
 
 * `$ bundle install`, `$ bundle update`: Gemfile 中の依存関係をインストール/アップデート
 
-## Typora
-
-* width: 1400px
-
 ## Python
 
 * [yapf - A formatter for Python files](https://github.com/google/yapf)

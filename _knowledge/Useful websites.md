@@ -16,6 +16,8 @@ order: 150
    * 3000細菌(+将来的に500ウイルス)の PacBio シーケンシング(リード・コンティグ)データベース
 * [Vertebrate Genomes Project](https://vertebrategenomesproject.org/)
    * 地球上のすべての脊椎動物のゲノムを解読しようとしているプロジェクト
+* [k-mer counting, part I: Introduction](https://bioinfologics.github.io/post/2018/09/17/k-mer-counting-part-i-introduction/)
+   * $k$-mer counting についての分かりやすくまとまった解説
 
 ## 機械学習
 

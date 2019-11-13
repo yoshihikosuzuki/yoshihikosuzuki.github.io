@@ -24,7 +24,7 @@ Genome sequence assembly is an inverse problem of reconstructing an original str
 ## Fellowships & Experience
 
 * Apr 2018 – Mar 2020 (expected), JSPS Research Fellowship for Young Scientists DC2
-* Sep 2017 – Mar 2018, Visiting Researcher at Prof. Gene Myers lab @ Max Planck Institute of Molecular Cell Biology and Genetics, Germany
+* Sep 2017 – Mar 2018, Visiting PhD student at Prof. Gene Myers lab @ Max Planck Institute of Molecular Cell Biology and Genetics, Germany
 * Jul 2016 – Jun 2017, Intern @ National Graduate Institute for Policy Studies, Japan
 * Dec 2015 – Jan 2016 & Dec 2016 – Jan 2017, Teaching Assistant ("Basic Laboratory Work in Information Science") to Prof. Shinichi Morishita @ The University of Tokyo, Japan
 * Apr 2015 – Mar 2018, JSPS Program for Leading Graduate Schools scholarship
@@ -36,13 +36,13 @@ Genome sequence assembly is an inverse problem of reconstructing an original str
 ## Publications
 
 * Y. Suzuki, S. Nishijima, Y. Furuta, J. Yoshimura, W. Suda, K. Oshima, M. Hattori and S. Morishita. Long-read metagenomic exploration of extrachromosomal mobile genetic elements in the human gut. *Microbiome* **7**, 119 (2019).
-* Y. Suzuki and S. Morishita. Metagenomic analysis using long reads. *Experimental Medicine Separate Volume, Yodosha*. 2016.
+* Y. Suzuki and S. Morishita. Metagenome analysis using long reads. *Experimental Medicine Separate Volume, Yodosha*. 2016.
 
 ## Conferences (presenter in bold style)
 
 ### Talk
 
-* **K. Ikeuchi**, Y. Suzuki and Y. Hara. Measuring the value of innovations using press releases of companies. *The Japanese Economic Association*, kyoto, Japan. Jun 2017.
+* **K. Ikeuchi**, Y. Suzuki and Y. Hara. Measuring the value of innovations using press releases of companies. *The Japanese Economic Association*, Kyoto, Japan. Jun 2017.
 * **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, M. Hattori and S. Morishita. Highly diversified metamethylome and metamobilome in human gut metagenomes. *SMRTLeiden*, Leiden, Netherland. May 2017.
 * **Y. Suzuki**, S. Nishijima, Y. Furuta, W. Suda, K. Oshima, M. Hattori and S. Morishita. Metagenome, metamobilome and meta-methylome of human gut flora uncovered by SMRT sequencing. *AGBT General Meeting*, Hollywood, Florida. Feb 2017.
 
@@ -55,8 +55,8 @@ Genome sequence assembly is an inverse problem of reconstructing an original str
 
 ## Skills
 
-* Python, C++, Bayesian statistics, string algorithm
-* Basics of front-end Web programming (Node.js, React & Redux, and Electron) [Project example](https://github.com/yoshihikosuzuki/PaperSorter)
+* Python, C++, Bayesian statistics, string algorithm [Project example](https://github.com/yoshihikosuzuki/CentromereAssembly)
+* Basics of front-end Web programming (Node.js, React & Redux, Electron) [Project example](https://github.com/yoshihikosuzuki/PaperSorter)
 * AtCoder max rating: 1445, light blue (Jun 2019; id: yetnone)
 * TOEIC score 900 (Jun 2018)
 * Applied Information Technology Engineer

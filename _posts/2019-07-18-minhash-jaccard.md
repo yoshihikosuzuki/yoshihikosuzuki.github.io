@@ -31,7 +31,7 @@ title: MinHash と Jaccard similarity の関係
 ランダムな $p$ を生成するのは時間がかかる。本質的なのは「比較する要素がランダムに選ばれること」なので、
 
 * Given: 要素に対するハッシュ関数 $\tilde{h}: E\rightarrow\mathbb{N}$
-* Def: 集合 $S_i$ に対する $\tilde{h}$ の最小値 $$h(S_i)=\min{\{\tilde{h}(e)\mid e\in S_i\}}$$
+* Def: 集合 $S_i$ に対する $\tilde{h}$ の最小値 $h(S_i)=\min\{\tilde{h}(e)\mid e\in S_i\}$
 
 として、$\tilde{h}$ が「性能の良い」ハッシュであれば、同様に ${\rm P}(h(S_i)=h(S_j))={\rm Jaccard}(S_i,S_j)$ が成り立つ。
 
