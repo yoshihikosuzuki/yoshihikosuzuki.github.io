@@ -27,7 +27,7 @@ $$
 x_i\sim{\rm Normal}_2(\mu_{z_i},\sigma^2_{z_i}I)
 $$
 
-に従うとする。ただし、$\mu_\cdot\in\mathbb{R}^2,\sigma^2_\cdot\in\mathbb{R}$ で $I$ は2次元単位行列。ここでは分布ごとに分散は異なるが、同じ分布の各次元では分散は同じとしている。
+に従うとする。ただし、$\mu_\cdot\in\mathbb{R}^2,\sigma^2_\cdot\in\mathbb{R}$ で $I$ は 2 次元単位行列。ここでは分布ごとに分散は異なるが、同じ分布の各次元では分散は同じとしている。
 
 ## データ生成
 
@@ -50,7 +50,7 @@ pi_true = np.expand_dims(np.unique(z_true, return_counts=True)[1] / N, axis=1).a
 x = np.array([np.random.multivariate_normal(mu_true[z_true[i]], sigma_true[z_true[i]] * np.identity(D)) for i in range(N)]).astype(dtype)
 ```
 
-生成したデータを2次元平面にプロットすると以下の通り。分布が気に入らなければ再度上のコードを実行して生成し直す。
+生成したデータを 2 次元平面にプロットすると以下の通り。分布が気に入らなければ再度上のコードを実行して生成し直す。
 
 {% include plotly/gaussian_mixture_data.html %}
 
@@ -72,7 +72,7 @@ $$
 
 ### EM アルゴリズム (k-means クラスタリング)
 
-`sklearn`があるのにフルスクラッチで実装するのはさすがに面倒だったので手抜き。一応 Tensorflow にも `tf.contrib.factorization.KMeans` というものはあるらしい。バージョン2で残るかは分からない。
+`sklearn`があるのにフルスクラッチで実装するのはさすがに面倒だったので手抜き。一応 Tensorflow にも `tf.contrib.factorization.KMeans` というものはあるらしい。バージョン 2 で残るかは分からない。
 
 ```python
 from sklearn.cluster import KMeans
@@ -121,7 +121,7 @@ a0 = np.full(K, 10, dtype=dtype)
 b0 = 0.5
 ```
 
-同時分布を計算する関数`log_joint`およびそれを使って非正規化事後確率を計算する関数`unnormalized_posterior`を定義する。$z$ を消去するために`tfd.MixtureSameFamily`を使う。$K$ 個のガウス分布はまとめて`tfd.Independent`で扱う。このとき、`tfd.Independent(tfd.Normal(loc, scale))`の`loc`と`scale`の`shape`はともに`(K, D)`である必要がある。今回は1つのガウス分布の各次元の分散は同じとしているので少しややこしい。
+同時分布を計算する関数`log_joint`およびそれを使って非正規化事後確率を計算する関数`unnormalized_posterior`を定義する。$z$ を消去するために`tfd.MixtureSameFamily`を使う。$K$ 個のガウス分布はまとめて`tfd.Independent`で扱う。このとき、`tfd.Independent(tfd.Normal(loc, scale))`の`loc`と`scale`の`shape`はともに`(K, D)`である必要がある。今回は 1 つのガウス分布の各次元の分散は同じとしているので少しややこしい。
 
 ```python
 rv_pi = tfd.Dirichlet(alpha0, name="pi")
@@ -158,7 +158,7 @@ hmc_kernel = tfp.mcmc.TransformedTransitionKernel(
     bijector=[tfb.SoftmaxCentered(), tfb.Identity(), tfb.Identity()])
 ```
 
-そして、パラメタの初期値を決めて MCMC を回す。今回は各ガウス分布の平均 $\mu$ の初期値をすべて0で与えたのだが、生成したデータの分布同士の重なりが大きいためか、適当な`step_size`と`n_leapfrog_steps`ではかなりの確率で $\pi$ のうち1つが途中で0になり`log_joint`が NaN になってしまったり、受容率が0になってしまったりした。ちなみに[公式 Jupyter Notebook](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Bayesian_Gaussian_Mixture_Model.ipynb) では真の平均を初期値にしている (いいのか？)。そのようにした場合は、収束が早くなるためか比較的適当なステップサイズ等で大丈夫だった。
+そして、パラメタの初期値を決めて MCMC を回す。今回は各ガウス分布の平均 $\mu$ の初期値をすべて 0 で与えたのだが、生成したデータの分布同士の重なりが大きいためか、適当な`step_size`と`n_leapfrog_steps`ではかなりの確率で $\pi$ のうち 1 つが途中で 0 になり`log_joint`が NaN になってしまったり、受容率が 0 になってしまったりした。ちなみに[公式 Jupyter Notebook](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Bayesian_Gaussian_Mixture_Model.ipynb) では真の平均を初期値にしている (いいのか？)。そのようにした場合は、収束が早くなるためか比較的適当なステップサイズ等で大丈夫だった。
 
 ```python
 n_burnin = 1000
@@ -173,7 +173,7 @@ var_init = np.full(K, 0.05, dtype=dtype)
                                                                               kernel=hmc_kernel)
 ```
 
-状態遷移の受容率は`np.mean(kernel_results.inner_results.is_accepted)`で分かる。今回は約92%だった。
+状態遷移の受容率は`np.mean(kernel_results.inner_results.is_accepted)`で分かる。今回は約 92%だった。
 
 非正規化事後分布とパラメタ遷移のプロットは以下のようになった。$\mu,\sigma^2$ ともにちゃんと収束している。
 
@@ -199,5 +199,5 @@ TODO
 
 ## 参考文献
 
-* [Bayesian Gaussian Mixture Model and Hamiltonian MCMC](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Bayesian_Gaussian_Mixture_Model.ipynb)
-* [ノンパラメトリックベイズ 点過程と統計的機械学習の数理 (機械学習プロフェッショナルシリーズ)](https://www.amazon.co.jp/dp/4061529153)
+- [Bayesian Gaussian Mixture Model and Hamiltonian MCMC](https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Bayesian_Gaussian_Mixture_Model.ipynb)
+- [ノンパラメトリックベイズ 点過程と統計的機械学習の数理 (機械学習プロフェッショナルシリーズ)](https://www.amazon.co.jp/dp/4061529153)
