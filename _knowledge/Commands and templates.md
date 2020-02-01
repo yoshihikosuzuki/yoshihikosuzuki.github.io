@@ -14,6 +14,7 @@ order: 100
 
 - 自動フォーマット: `Alt + Shift + F`
 - ターミナルウィンドウを開く: `` Ctrl + Shift + ` ``
+- ターミナルからファイルを開く: (コマンドパレットから`shell command`で`code`コマンドをインストール) -> `$ code ファイル名`
 
 ## Jupyter Notebook
 
@@ -52,9 +53,10 @@ logzero.loglevel(logging.INFO)
 - `$ brew upgrade`: Homebrew 本体とパッケージのアップデート
 - `$ brew install PACKAGE`, `$ brew uninstall PACKAGE`, `$ brew list`
 
-## Gemfile
+## Jekyll (GitHub Pages)
 
 - `$ bundle install`, `$ bundle update`: Gemfile 中の依存関係をインストール/アップデート
+- `$ bundle exec jekyll serve`: ローカルで Jekyll を実行
 
 ## Python
 
