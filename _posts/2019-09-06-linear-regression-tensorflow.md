@@ -2,8 +2,7 @@
 layout: post
 title: Tensorflow (Probability) で線形回帰
 plotly: true
-redirect_to:
-  - https://yoshihiko-suzuki.netlify.com/posts/tensorflow-linear-regression
+redirect_to: https://yoshihiko-suzuki.netlify.com/posts/tensorflow-linear-regression
 ---
 
 TensorFlow (version 1.4), TensorFlow Probability, Edwards2 の勉強のために、最尤推定とベイズ推定の各種解法で、潜在変数なしの場合に代表的な線形回帰を解く。潜在変数ありの[混合ガウス分布はこちら]({% post_url 2019-09-07-gaussian-mixture-model-tensorflow %})。

@@ -2,8 +2,7 @@
 layout: post
 title: Tensorflow (Probability) で混合ガウスモデル
 plotly: true
-redirect_to:
-  - https://yoshihiko-suzuki.netlify.com/posts/tensorflow-gaussian-mixture
+redirect_to: https://yoshihiko-suzuki.netlify.com/posts/tensorflow-gaussian-mixture
 ---
 
 TensorFlow (version 1.4), TensorFlow Probability, Edwards2 の勉強のために、最尤推定とベイズ推定の各種解法で、潜在変数ありの場合に代表的な混合ガウスモデルを解く。潜在変数なしの[線形回帰はこちら]({% post_url 2019-09-06-linear-regression-tensorflow %})。

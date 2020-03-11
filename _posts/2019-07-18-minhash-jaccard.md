@@ -1,8 +1,7 @@
 ---
 layout: post
 title: MinHash と Jaccard similarity の関係
-redirect_to:
-  - https://yoshihiko-suzuki.netlify.com/posts/minhash-jaccard
+redirect_to: https://yoshihiko-suzuki.netlify.com/posts/minhash-jaccard
 ---
 
 * Given: 2つの集合 $X,Y$

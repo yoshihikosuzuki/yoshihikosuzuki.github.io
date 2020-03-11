@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Home
-redirect_to:
-  - https://yoshihiko-suzuki.netlify.com/
+redirect_to: https://yoshihiko-suzuki.netlify.com
 ---
 
 ## 最近のブログ投稿

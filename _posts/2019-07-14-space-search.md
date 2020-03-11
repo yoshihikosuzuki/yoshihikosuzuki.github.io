@@ -1,8 +1,7 @@
 ---
 layout: post
 title: 二次元平面の少し複雑な探索
-redirect_to:
-  - https://yoshihiko-suzuki.netlify.com/posts/search-2d-space
+redirect_to: https://yoshihiko-suzuki.netlify.com/posts/search-2d-space
 ---
 
 二次元平面上の探索で、上下左右以外の移動を使う問題を探していたのだが、ちょうど良さそうな[問題](https://hoj.hamako-ths.ed.jp/onlinejudge/contest/93/problems/1)を見つけたので解く。ただし、公式解答は無い。
