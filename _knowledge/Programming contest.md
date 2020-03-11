@@ -2,6 +2,8 @@
 layout: knowledge
 title: C++ 競技プログラミングテンプレート
 order: 200
+redirect_to:
+  - https://yoshihiko-suzuki.netlify.com/articles/competitive-programming-cpp-template
 ---
 
 ### 型・マクロ

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: ゲノムアセンブリの A-statistic
+redirect_to:
+  - https://yoshihiko-suzuki.netlify.com/posts/assembly-a-statistic
 ---
 
 ほとんど自分用メモ。[Myers, E. W. A Whole-Genome Assembly of Drosophila. *Science*  287, 2196–2204 (2000)](https://science.sciencemag.org/content/287/5461/2196) にある "A-statistic" (ググラビリティが低い) について。

@@ -2,6 +2,8 @@
 layout: knowledge
 title: Web プログラミング(フロントエンド)覚書
 order: 230
+redirect_to:
+  - https://yoshihiko-suzuki.netlify.com/articles/web-programming
 ---
 
 <div align="center">

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Zotero で管理している PDF を iPad/モバイル端末から閲覧・編集する
+redirect_to:
+  - https://yoshihiko-suzuki.netlify.com/posts/zotero-with-ipad
 ---
 
 文献管理ソフトの1つであるところの [Zotero](https://www.zotero.org/) は PC 版だと使いやすいのだけど、別の端末に同期させようとすると少々面倒な話になってくる。

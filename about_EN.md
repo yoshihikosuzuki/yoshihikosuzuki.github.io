@@ -1,6 +1,8 @@
 ---
 layout: default
 title: About
+redirect_to:
+  - https://yoshihiko-suzuki.netlify.com/pages/about
 ---
 
 A graduate student majoring in bioinformatics at The University of Tokyo in Chiba &#x1f914;.

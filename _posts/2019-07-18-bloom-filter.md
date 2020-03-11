@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Bloom filter
+redirect_to:
+  - https://yoshihiko-suzuki.netlify.com/posts/bloom-filter
 ---
 
 * Given: Bloom filter (BF) のサイズ $N\in\mathbb{N}$

@@ -2,6 +2,8 @@
 layout: knowledge
 title: ソフトウエアの使い方覚書
 order: 550
+redirect_to:
+  - https://yoshihiko-suzuki.netlify.com/articles/software-usage
 ---
 
 ## 配列アラインメント

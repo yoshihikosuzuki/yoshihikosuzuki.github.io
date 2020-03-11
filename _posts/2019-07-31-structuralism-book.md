@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 構造主義(数学・哲学)
+redirect_to:
+  - https://yoshihiko-suzuki.netlify.com/posts/structuralism-book
 ---
 
 [寝ながら学べる構造主義](https://www.amazon.co.jp/dp/4166602519)の感想と、その動機に関する前置き。

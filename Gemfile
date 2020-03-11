@@ -11,4 +11,5 @@ group :jekyll_plugins do
   gem "jekyll-theme-leap-day"
   gem "jekyll-paginate"
   gem 'jekyll-algolia'
+  gem 'jekyll-redirect-from'
 end
